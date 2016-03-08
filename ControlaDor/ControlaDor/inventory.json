@@ -1,0 +1,46 @@
+{
+	"03": {
+		"identifier": "Pior dor nas últimas 24h",
+		"question": "Escolha o número que melhor descreve a pior dor que você sentiu nas últimas 24h."
+	},
+	"04": {
+		"identifier": "Menor dor nas últimas 24h",
+		"question": "Escolha o número que melhor descreve a dor mais fraca que você sentiu nas últimas 24h."
+	},
+	"05": {
+		"identifier": "Média da dor",
+		"question": "Escolha o número que melhor descreve a média da sua dor."
+	},
+	"06": {
+		"identifier": "Dor atual",
+		"question": "Escolha o número que mostra a dor que você está sentindo agora."
+	},
+	"09": {
+		"identifier": "Interferência na atividade geral",
+		"question": "Escolha o número que melhor descreve como, nas últimas 24h, a dor interferiu na sua Atividade Geral."
+	},
+	"10": {
+		"identifier": "Interferência no humor",
+		"question": "Escolha o número que melhor descreve como, nas últimas 24h, a dor interferiu no seu Humor."
+	},
+	"11": {
+		"identifier": "Interferência na habilidade de caminhar",
+		"question": "Escolha o número que melhor descreve como, nas últimas 24h, a dor interferiu na sua Habilidade de Caminhar."
+	},
+	"12": {
+		"identifier": "Interferência no trabalho",
+		"question": "Escolha o número que melhor descreve como, nas últimas 24h, a dor interferiu no seu Trabalho."
+	},
+	"13": {
+		"identifier": "Interferência no relacionamento social",
+		"question": "Escolha o número que melhor descreve como, nas últimas 24h, a dor interferiu no seu Relacionamento Social."
+	},
+	"14": {
+		"identifier": "Interferência no sono",
+		"question": "Escolha o número que melhor descreve como, nas últimas 24h, a dor interferiu no seu Sono."
+	},
+	"15": {
+		"identifier": "Interferência na habilidade para apreciar a vida",
+		"question": "Escolha o número que melhor descreve como, nas últimas 24h, a dor interferiu na sua Habilidade para Apreciar a Vida."
+	}
+}
