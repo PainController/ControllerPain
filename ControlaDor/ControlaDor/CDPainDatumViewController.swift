@@ -16,21 +16,25 @@ class CDPainDatumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let frame = CGRectMake(0, 15, view.frame.size.width - 100, scrollView.frame.size.height)
+        scrollView.frame.size = frame.size
+
         scrollView.translatesAutoresizingMaskIntoConstraints = true
-        var imageView1 = UIImageView(frame: scrollView.frame)
+        let imageView1 = UIImageView(frame: frame)
         imageView1.image = images.first
         imageView1.contentMode = .ScaleAspectFit
-        var imageView2 = UIImageView(frame: scrollView.frame)
+        let imageView2 = UIImageView(frame: frame)
         imageView2.image = images.last
         imageView2.contentMode = .ScaleAspectFit
         var x = imageView2.frame.origin.x
-        x = x + imageView2.frame.origin.x
+        x += frame.size.width
         imageView2.frame.origin.x = x
 
         scrollView.addSubview(imageView1)
         scrollView.addSubview(imageView2)
 
-        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 2, scrollView.frame.size.height)
+        scrollView.contentSize = CGSizeMake(frame.size.width * 2, scrollView.frame.size.height)
+
     }
 
     override func didReceiveMemoryWarning() {

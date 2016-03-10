@@ -287,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJc-7y-Uej">
-                                <rect key="frame" x="20" y="0.0" width="560" height="44"/>
+                                <rect key="frame" x="4" y="0.0" width="592" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="done" id="Hw1-f7-h74">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -299,18 +299,18 @@
                                 <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBh-tX-1bR">
-                                <rect key="frame" x="20" y="44" width="560" height="536"/>
+                                <rect key="frame" x="20" y="44" width="560" height="556"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oBh-tX-1bR" firstAttribute="leading" secondItem="cJQ-jJ-5Ns" secondAttribute="leadingMargin" id="4eU-c9-0ZH"/>
                             <constraint firstItem="oBh-tX-1bR" firstAttribute="top" secondItem="IJc-7y-Uej" secondAttribute="bottom" id="ARA-LO-pFi"/>
-                            <constraint firstItem="IJc-7y-Uej" firstAttribute="leading" secondItem="cJQ-jJ-5Ns" secondAttribute="leadingMargin" id="HFj-2z-N4A"/>
+                            <constraint firstItem="IJc-7y-Uej" firstAttribute="leading" secondItem="cJQ-jJ-5Ns" secondAttribute="leadingMargin" constant="-16" id="HFj-2z-N4A"/>
                             <constraint firstItem="IJc-7y-Uej" firstAttribute="top" secondItem="cJQ-jJ-5Ns" secondAttribute="topMargin" id="MZC-zQ-wFp"/>
-                            <constraint firstItem="HzH-kf-nLk" firstAttribute="top" secondItem="oBh-tX-1bR" secondAttribute="bottom" constant="20" id="hab-VF-V2W"/>
+                            <constraint firstItem="HzH-kf-nLk" firstAttribute="top" secondItem="oBh-tX-1bR" secondAttribute="bottom" id="hab-VF-V2W"/>
                             <constraint firstItem="oBh-tX-1bR" firstAttribute="trailing" secondItem="cJQ-jJ-5Ns" secondAttribute="trailingMargin" id="i1e-uZ-jMD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IJc-7y-Uej" secondAttribute="trailing" id="taM-8G-bgJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IJc-7y-Uej" secondAttribute="trailing" constant="-16" id="taM-8G-bgJ"/>
                         </constraints>
                     </view>
                     <connections>

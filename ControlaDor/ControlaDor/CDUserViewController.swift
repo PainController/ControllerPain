@@ -11,6 +11,7 @@
 
 import UIKit
 import ResearchKit
+import MessageUI
 
 protocol CDUserViewControllerInput
 {
@@ -120,6 +121,22 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
             taskViewController.delegate = self
             taskViewController.outputDirectory = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0], isDirectory: true)
             presentViewController(taskViewController, animated: true, completion: nil)
+        } else if indexPath.section == 1 && indexPath.row == 1 {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if let data = defaults.objectForKey("BFIUpdated") {
+                let doctorData = data as! NSData
+                let dataPack = NSKeyedUnarchiver.unarchiveObjectWithData(doctorData) as! NSArray
+                let results = dataPack.firstObject as! [String : String]
+                _ = dataPack.lastObject as! [UIImage]
+
+                do {
+                    let jsonData = try NSJSONSerialization.dataWithJSONObject(results, options: .PrettyPrinted)
+                    let jsonText = NSString(data: jsonData, encoding: NSASCIIStringEncoding)
+                    print(jsonText)
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
 
@@ -132,7 +149,11 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
             let results = taskViewController.dictionaryWithTaskResult(taskResult)
             let images = [(taskViewController as! IRLTaskViewController).shaderFrontImage , (taskViewController as! IRLTaskViewController).shaderBackImage]
             let doctorData = [results , images]
-            print(doctorData)
+            let data = NSKeyedArchiver.archivedDataWithRootObject(doctorData)
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setObject(data, forKey: "BFIUpdated")
+            userDefaults.synchronize()
+            print(userDefaults.objectForKey("BFIUpdated"))
         }
 
         // Aguardando método de upload para o server
