@@ -16,6 +16,7 @@ protocol CDPainDataInteractorInput
   func fetchRequest(request: CDPainDataRequest)
   func createPainDatum(request: CDPainDatumRequest)
   func deletePainDatum(request: CDPainDatumDeleteRequest, completionHandler: (success: Bool) -> Void)
+  func decodeImagesFromString(dataString: String) -> [UIImage]?
 }
 
 protocol CDPainDataInteractorOutput
@@ -79,5 +80,11 @@ class CDPainDataInteractor: CDPainDataInteractorInput
             })
         }
     }
+  }
+
+  func decodeImagesFromString(dataString: String) -> [UIImage]? {
+    let data = NSData(base64EncodedString: dataString, options: .IgnoreUnknownCharacters)
+    let images = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as? [UIImage]
+    return images
   }
 }

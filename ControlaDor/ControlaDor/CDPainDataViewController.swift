@@ -23,6 +23,7 @@ protocol CDPainDataViewControllerOutput
     func fetchRequest(request: CDPainDataRequest)
     func createPainDatum(request: CDPainDatumRequest)
     func deletePainDatum(request: CDPainDatumDeleteRequest, completionHandler: (success: Bool) -> Void)
+    func decodeImagesFromString(dataString: String) -> [UIImage]?
 }
 
 class CDPainDataViewController: UITableViewController, CDPainDataViewControllerInput, ORKTaskViewControllerDelegate
@@ -84,6 +85,7 @@ class CDPainDataViewController: UITableViewController, CDPainDataViewControllerI
 
     let reuseIdentifier = "PainDatum"
     var painData:[(NSDate,Double,String)]!
+    let overlayTransitioningDelegate = OverlayTransitioningDelegate()
 
     // MARK: TableView DataSource and Delegate Methods
 
@@ -142,6 +144,24 @@ class CDPainDataViewController: UITableViewController, CDPainDataViewControllerI
         }
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let painDatum = painData[indexPath.row]
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OverlayViewController") as! CDPainDatumViewController
+        if let images = output.decodeImagesFromString(painDatum.2) {
+            controller.images = images
+            prepareOverlayVC(controller)
+            presentViewController(controller, animated: true, completion: nil)
+        } else {
+            print(__FUNCTION__,"returned nil")
+        }
+    }
+
+    // MARK: Transition methods for showing photos
+
+    private func prepareOverlayVC(overlayVC: UIViewController) {
+        overlayVC.transitioningDelegate = overlayTransitioningDelegate
+        overlayVC.modalPresentationStyle = .Custom
+    }
 
     // MARK: TaskViewControllerDelegate
 

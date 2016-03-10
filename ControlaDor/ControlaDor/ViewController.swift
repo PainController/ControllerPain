@@ -125,7 +125,7 @@ class ViewController: ORKStepViewController {
 
     func share() -> UIImage {
         UIGraphicsBeginImageContext(mainImageView.bounds.size)
-        bodyImageView.image?.drawInRect(CGRect(x: (mainImageView.frame.size.width - bodyImageView.frame.size.width)/2, y: (mainImageView.frame.size.height - bodyImageView.frame.size.height)/2 - 31, width: bodyImageView.frame.size.width, height: bodyImageView.frame.size.height))
+        bodyImageView.image?.drawInRect(CGRect(x: (mainImageView.frame.size.width - bodyImageView.frame.size.width)/2, y: (mainImageView.frame.size.height - bodyImageView.frame.size.height)/2 - 34, width: bodyImageView.frame.size.width, height: bodyImageView.frame.size.height))
         mainImageView.image?.drawInRect(CGRect(x: 0, y: 0,
             width: mainImageView.frame.size.width, height: mainImageView.frame.size.height))
         let image = UIGraphicsGetImageFromCurrentImageContext()

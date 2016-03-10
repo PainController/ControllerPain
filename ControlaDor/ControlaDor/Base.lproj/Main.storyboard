@@ -238,6 +238,7 @@
                             <constraint firstAttribute="trailing" secondItem="hMp-aZ-bed" secondAttribute="trailing" id="JoZ-VO-1MP"/>
                             <constraint firstItem="AeP-PD-zs4" firstAttribute="leading" secondItem="bUN-YB-9q9" secondAttribute="leadingMargin" id="RJI-La-Rsg"/>
                             <constraint firstItem="Oer-Px-Enp" firstAttribute="leading" secondItem="AeP-PD-zs4" secondAttribute="trailing" constant="15" id="RJP-rw-ys2"/>
+                            <constraint firstItem="Y7G-w7-mnT" firstAttribute="centerY" secondItem="bUN-YB-9q9" secondAttribute="centerY" id="U3p-JV-hwN"/>
                             <constraint firstItem="hMp-aZ-bed" firstAttribute="top" secondItem="bUN-YB-9q9" secondAttribute="top" id="Uby-mJ-ytL"/>
                             <constraint firstItem="n67-Wm-2qD" firstAttribute="top" secondItem="hMp-aZ-bed" secondAttribute="bottom" id="eRU-xG-6m2"/>
                             <constraint firstItem="Y7G-w7-mnT" firstAttribute="centerX" secondItem="bUN-YB-9q9" secondAttribute="centerX" constant="0.5" id="eUz-tJ-a5F"/>
@@ -254,6 +255,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="U3p-JV-hwN"/>
                                 <exclude reference="yeV-8n-yvp"/>
                             </mask>
                         </variation>
@@ -271,6 +273,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6Y-wQ-QnA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1206" y="956"/>
+        </scene>
+        <!--Pain Datum View Controller-->
+        <scene sceneID="XCR-1O-Udr">
+            <objects>
+                <viewController storyboardIdentifier="OverlayViewController" id="WyB-l8-vnK" customClass="CDPainDatumViewController" customModule="ControlaDor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4zt-RC-qNW"/>
+                        <viewControllerLayoutGuide type="bottom" id="HzH-kf-nLk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cJQ-jJ-5Ns">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJc-7y-Uej">
+                                <rect key="frame" x="20" y="0.0" width="560" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="done" id="Hw1-f7-h74">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="dismissViewController:" destination="WyB-l8-vnK" id="7RT-AM-ScU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBh-tX-1bR">
+                                <rect key="frame" x="20" y="44" width="560" height="536"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oBh-tX-1bR" firstAttribute="leading" secondItem="cJQ-jJ-5Ns" secondAttribute="leadingMargin" id="4eU-c9-0ZH"/>
+                            <constraint firstItem="oBh-tX-1bR" firstAttribute="top" secondItem="IJc-7y-Uej" secondAttribute="bottom" id="ARA-LO-pFi"/>
+                            <constraint firstItem="IJc-7y-Uej" firstAttribute="leading" secondItem="cJQ-jJ-5Ns" secondAttribute="leadingMargin" id="HFj-2z-N4A"/>
+                            <constraint firstItem="IJc-7y-Uej" firstAttribute="top" secondItem="cJQ-jJ-5Ns" secondAttribute="topMargin" id="MZC-zQ-wFp"/>
+                            <constraint firstItem="HzH-kf-nLk" firstAttribute="top" secondItem="oBh-tX-1bR" secondAttribute="bottom" constant="20" id="hab-VF-V2W"/>
+                            <constraint firstItem="oBh-tX-1bR" firstAttribute="trailing" secondItem="cJQ-jJ-5Ns" secondAttribute="trailingMargin" id="i1e-uZ-jMD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IJc-7y-Uej" secondAttribute="trailing" id="taM-8G-bgJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="oBh-tX-1bR" id="fMb-f4-TF1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5T-zX-HdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="1605"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tiq-lA-lSl">
