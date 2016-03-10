@@ -58,7 +58,7 @@ public var BriefPainInvetoryTask: ORKOrderedTask {
 
     let instruction = ORKInstructionStep(identifier: "Instrução para o desenho")
     instruction.title = "Marque nos desenhos a seguir aonde você está sentindo dor"
-    instruction.text = "Toque e arraste para ir desenhando\n1) Na frente de seu corpo\n2) Atrás de seu corpo"
+    instruction.text = "Toque e arraste para ir desenhando, passe mais camadas de tinta para destacar locais com mais dor\n1) Na frente de seu corpo\n2) Atrás de seu corpo"
     steps.append(instruction)
 
     let step1 = ORKBodyShaderStep(identifier: "HumanBodyFront")
@@ -86,7 +86,7 @@ public var BriefPainInvetoryTask: ORKOrderedTask {
     formStep.optional = false
     let textFormat = ORKTextAnswerFormat()
     textFormat.multipleLines = true
-    let nameItem = ORKFormItem(identifier: "Medicamentos e tratamentos", text: "Medicamentos/Tratamentos", answerFormat: textFormat, optional: false)
+    let nameItem = ORKFormItem(identifier: "Medicamentos e tratamentos", text: "Medicamentos e Tratamentos\nNome, dose/frequência e data de início", answerFormat: textFormat, optional: false)
     nameItem.placeholder = "Nome, dose/frequência e data de início"
     let moduleItem = ORKFormItem(identifier: "Intensidade da melhora causada por medicamentos ou tratamentos", text: "Intensidade da melhora", answerFormat: scaleAnswerFormat, optional: false)
     formStep.formItems = [nameItem , moduleItem]
@@ -99,5 +99,5 @@ public var BriefPainInvetoryTask: ORKOrderedTask {
     summaryStep.text = "Seus dados estão atualizados"
     steps.append(summaryStep)
 
-    return ORKOrderedTask(identifier: "SurveyTask", steps: steps)
+    return ORKOrderedTask(identifier: "Inventário breve de dor", steps: steps)
 }

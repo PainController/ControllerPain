@@ -9,15 +9,15 @@
 import Foundation
 import CoreData
 
-class CoreDataStack: CoreDataStackProtocol {
+class CDCoreDataStack: CDCoreDataStackProtocol {
 
-    class var sharedInstance : CoreDataStack {
+    class var sharedInstance : CDCoreDataStack {
         struct Static {
             static var onceToken : dispatch_once_t = 0
-            static var instance : CoreDataStack? = nil
+            static var instance : CDCoreDataStack? = nil
         }
         dispatch_once(&Static.onceToken) {
-            Static.instance = CoreDataStack()
+            Static.instance = CDCoreDataStack()
         }
         return Static.instance!
     }

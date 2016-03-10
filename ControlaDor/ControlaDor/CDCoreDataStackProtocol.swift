@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-protocol CoreDataStackProtocol {
+protocol CDCoreDataStackProtocol {
     // MARK: - Core Data stack
 
     var applicationDocumentsDirectory: NSURL { get set }

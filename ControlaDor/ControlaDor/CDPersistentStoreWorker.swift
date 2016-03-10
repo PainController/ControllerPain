@@ -10,17 +10,24 @@
 //
 
 import UIKit
+import CoreData
 
 class CDPersistentStoreWorker
 {
     // MARK: Business Logic
+    var fetchRequest: NSFetchRequest!
 
-    init(stack: CoreDataStack) {
-        
+    init(entityName: String) {
+        fetchRequest = NSFetchRequest(entityName: entityName)
     }
   
-    func doSomeWork()
+    func makeFetchRequest(responseHandler: (entities: [CDPainDatum]) -> Void) throws
     {
-        // NOTE: Do the work
+        do {
+            let entities = try CDCoreDataStack.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [CDPainDatum]
+            responseHandler(entities: entities)
+        } catch {
+            throw error
+        }
     }
 }

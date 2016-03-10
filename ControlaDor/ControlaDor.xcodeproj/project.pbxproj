@@ -23,14 +23,24 @@
 		E4507F471C8F4DAE006CCE91 /* CDUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F401C8F4DAE006CCE91 /* CDUserViewController.swift */; };
 		E4507F481C8F4DAE006CCE91 /* CDUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F411C8F4DAE006CCE91 /* CDUserWorker.swift */; };
 		E4507F531C8F6AE0006CCE91 /* CDPersistentStoreWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F521C8F6AE0006CCE91 /* CDPersistentStoreWorker.swift */; };
-		E4507F551C8F6B0B006CCE91 /* CoreDataStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F541C8F6B0B006CCE91 /* CoreDataStackProtocol.swift */; };
-		E4507F571C8F6BFC006CCE91 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F561C8F6BFC006CCE91 /* CoreDataStack.swift */; };
+		E4507F551C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F541C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift */; };
+		E4507F571C8F6BFC006CCE91 /* CDCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F561C8F6BFC006CCE91 /* CDCoreDataStack.swift */; };
 		E4507F591C8F871C006CCE91 /* BriefPainInvetoryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F581C8F871C006CCE91 /* BriefPainInvetoryTask.swift */; };
 		E4507F5B1C8F891B006CCE91 /* IRLTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F5A1C8F891B006CCE91 /* IRLTaskViewController.swift */; };
 		E4507F5D1C8F893C006CCE91 /* ORKBodyShaderStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F5C1C8F893C006CCE91 /* ORKBodyShaderStep.swift */; };
 		E4507F5F1C8F8945006CCE91 /* inventory.json in Resources */ = {isa = PBXBuildFile; fileRef = E4507F5E1C8F8945006CCE91 /* inventory.json */; };
 		E4507F611C8F894B006CCE91 /* ORKTaskResultString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F601C8F894B006CCE91 /* ORKTaskResultString.swift */; };
 		E4507F631C8F8A4A006CCE91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F621C8F8A4A006CCE91 /* ViewController.swift */; };
+		E4507F6D1C908BC5006CCE91 /* CDPainDataConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F661C908BC5006CCE91 /* CDPainDataConfigurator.swift */; };
+		E4507F6E1C908BC5006CCE91 /* CDPainDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F671C908BC5006CCE91 /* CDPainDataInteractor.swift */; };
+		E4507F6F1C908BC5006CCE91 /* CDPainDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F681C908BC5006CCE91 /* CDPainDataModels.swift */; };
+		E4507F701C908BC5006CCE91 /* CDPainDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F691C908BC5006CCE91 /* CDPainDataPresenter.swift */; };
+		E4507F711C908BC5006CCE91 /* CDPainDataRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F6A1C908BC5006CCE91 /* CDPainDataRouter.swift */; };
+		E4507F721C908BC5006CCE91 /* CDPainDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F6B1C908BC5006CCE91 /* CDPainDataViewController.swift */; };
+		E4507F731C908BC5006CCE91 /* CDPainDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F6C1C908BC5006CCE91 /* CDPainDataWorker.swift */; };
+		E4507F771C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */; };
+		E4507F781C908EB0006CCE91 /* CDPainDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F761C908EB0006CCE91 /* CDPainDatum.swift */; };
+		E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41711C90C866009D715A /* CDPainDatumTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,14 +99,24 @@
 		E4507F401C8F4DAE006CCE91 /* CDUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDUserViewController.swift; sourceTree = "<group>"; };
 		E4507F411C8F4DAE006CCE91 /* CDUserWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDUserWorker.swift; sourceTree = "<group>"; };
 		E4507F521C8F6AE0006CCE91 /* CDPersistentStoreWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPersistentStoreWorker.swift; sourceTree = "<group>"; };
-		E4507F541C8F6B0B006CCE91 /* CoreDataStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackProtocol.swift; sourceTree = "<group>"; };
-		E4507F561C8F6BFC006CCE91 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E4507F541C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDCoreDataStackProtocol.swift; sourceTree = "<group>"; };
+		E4507F561C8F6BFC006CCE91 /* CDCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDCoreDataStack.swift; sourceTree = "<group>"; };
 		E4507F581C8F871C006CCE91 /* BriefPainInvetoryTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BriefPainInvetoryTask.swift; sourceTree = "<group>"; };
 		E4507F5A1C8F891B006CCE91 /* IRLTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRLTaskViewController.swift; sourceTree = "<group>"; };
 		E4507F5C1C8F893C006CCE91 /* ORKBodyShaderStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKBodyShaderStep.swift; sourceTree = "<group>"; };
 		E4507F5E1C8F8945006CCE91 /* inventory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = inventory.json; sourceTree = "<group>"; };
 		E4507F601C8F894B006CCE91 /* ORKTaskResultString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKTaskResultString.swift; sourceTree = "<group>"; };
 		E4507F621C8F8A4A006CCE91 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E4507F661C908BC5006CCE91 /* CDPainDataConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataConfigurator.swift; sourceTree = "<group>"; };
+		E4507F671C908BC5006CCE91 /* CDPainDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataInteractor.swift; sourceTree = "<group>"; };
+		E4507F681C908BC5006CCE91 /* CDPainDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataModels.swift; sourceTree = "<group>"; };
+		E4507F691C908BC5006CCE91 /* CDPainDataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataPresenter.swift; sourceTree = "<group>"; };
+		E4507F6A1C908BC5006CCE91 /* CDPainDataRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataRouter.swift; sourceTree = "<group>"; };
+		E4507F6B1C908BC5006CCE91 /* CDPainDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataViewController.swift; sourceTree = "<group>"; };
+		E4507F6C1C908BC5006CCE91 /* CDPainDataWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataWorker.swift; sourceTree = "<group>"; };
+		E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDPainDatum+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4507F761C908EB0006CCE91 /* CDPainDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatum.swift; sourceTree = "<group>"; };
+		E4ED41711C90C866009D715A /* CDPainDatumTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatumTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,16 +153,14 @@
 			isa = PBXGroup;
 			children = (
 				E4507EBB1C8F3B36006CCE91 /* AppDelegate.swift */,
-				E4507F521C8F6AE0006CCE91 /* CDPersistentStoreWorker.swift */,
-				E4507F541C8F6B0B006CCE91 /* CoreDataStackProtocol.swift */,
-				E4507F561C8F6BFC006CCE91 /* CoreDataStack.swift */,
+				E4507F741C908BF0006CCE91 /* CDCoreDataStack */,
 				E4507F641C8F8C6D006CCE91 /* ResearchKit classes */,
 				E4507F491C8F4DB3006CCE91 /* CDUser */,
+				E4507F651C908B9B006CCE91 /* CDPainData */,
 				E4507EBF1C8F3B36006CCE91 /* Main.storyboard */,
 				E4507EC51C8F3B36006CCE91 /* Assets.xcassets */,
 				E4507EC71C8F3B36006CCE91 /* LaunchScreen.storyboard */,
 				E4507ECA1C8F3B36006CCE91 /* Info.plist */,
-				E4507EC21C8F3B36006CCE91 /* ControlaDor.xcdatamodeld */,
 			);
 			path = ControlaDor;
 			sourceTree = "<group>";
@@ -183,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				E4507F581C8F871C006CCE91 /* BriefPainInvetoryTask.swift */,
+				E4ED41711C90C866009D715A /* CDPainDatumTask.swift */,
 				E4507F5A1C8F891B006CCE91 /* IRLTaskViewController.swift */,
 				E4507F5C1C8F893C006CCE91 /* ORKBodyShaderStep.swift */,
 				E4507F5E1C8F8945006CCE91 /* inventory.json */,
@@ -190,6 +209,33 @@
 				E4507F621C8F8A4A006CCE91 /* ViewController.swift */,
 			);
 			name = "ResearchKit classes";
+			sourceTree = "<group>";
+		};
+		E4507F651C908B9B006CCE91 /* CDPainData */ = {
+			isa = PBXGroup;
+			children = (
+				E4507F661C908BC5006CCE91 /* CDPainDataConfigurator.swift */,
+				E4507F671C908BC5006CCE91 /* CDPainDataInteractor.swift */,
+				E4507F681C908BC5006CCE91 /* CDPainDataModels.swift */,
+				E4507F691C908BC5006CCE91 /* CDPainDataPresenter.swift */,
+				E4507F6A1C908BC5006CCE91 /* CDPainDataRouter.swift */,
+				E4507F6B1C908BC5006CCE91 /* CDPainDataViewController.swift */,
+				E4507F6C1C908BC5006CCE91 /* CDPainDataWorker.swift */,
+			);
+			name = CDPainData;
+			sourceTree = "<group>";
+		};
+		E4507F741C908BF0006CCE91 /* CDCoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */,
+				E4507F761C908EB0006CCE91 /* CDPainDatum.swift */,
+				E4507EC21C8F3B36006CCE91 /* ControlaDor.xcdatamodeld */,
+				E4507F521C8F6AE0006CCE91 /* CDPersistentStoreWorker.swift */,
+				E4507F541C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift */,
+				E4507F561C8F6BFC006CCE91 /* CDCoreDataStack.swift */,
+			);
+			name = CDCoreDataStack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,22 +336,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4507EC41C8F3B36006CCE91 /* ControlaDor.xcdatamodeld in Sources */,
+				E4507F711C908BC5006CCE91 /* CDPainDataRouter.swift in Sources */,
 				E4507F5D1C8F893C006CCE91 /* ORKBodyShaderStep.swift in Sources */,
 				E4507F531C8F6AE0006CCE91 /* CDPersistentStoreWorker.swift in Sources */,
 				E4507F441C8F4DAE006CCE91 /* CDUserModels.swift in Sources */,
-				E4507F571C8F6BFC006CCE91 /* CoreDataStack.swift in Sources */,
+				E4507F701C908BC5006CCE91 /* CDPainDataPresenter.swift in Sources */,
+				E4507F571C8F6BFC006CCE91 /* CDCoreDataStack.swift in Sources */,
+				E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */,
 				E4507F481C8F4DAE006CCE91 /* CDUserWorker.swift in Sources */,
+				E4507F771C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift in Sources */,
 				E4507F471C8F4DAE006CCE91 /* CDUserViewController.swift in Sources */,
+				E4507F721C908BC5006CCE91 /* CDPainDataViewController.swift in Sources */,
 				E4507F451C8F4DAE006CCE91 /* CDUserPresenter.swift in Sources */,
 				E4507F421C8F4DAE006CCE91 /* CDUserConfigurator.swift in Sources */,
+				E4507F731C908BC5006CCE91 /* CDPainDataWorker.swift in Sources */,
+				E4507F781C908EB0006CCE91 /* CDPainDatum.swift in Sources */,
+				E4507F6D1C908BC5006CCE91 /* CDPainDataConfigurator.swift in Sources */,
 				E4507F631C8F8A4A006CCE91 /* ViewController.swift in Sources */,
 				E4507F611C8F894B006CCE91 /* ORKTaskResultString.swift in Sources */,
 				E4507F591C8F871C006CCE91 /* BriefPainInvetoryTask.swift in Sources */,
 				E4507F461C8F4DAE006CCE91 /* CDUserRouter.swift in Sources */,
 				E4507F431C8F4DAE006CCE91 /* CDUserInteractor.swift in Sources */,
 				E4507F5B1C8F891B006CCE91 /* IRLTaskViewController.swift in Sources */,
-				E4507F551C8F6B0B006CCE91 /* CoreDataStackProtocol.swift in Sources */,
+				E4507F551C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift in Sources */,
 				E4507EBC1C8F3B36006CCE91 /* AppDelegate.swift in Sources */,
+				E4507F6F1C908BC5006CCE91 /* CDPainDataModels.swift in Sources */,
+				E4507F6E1C908BC5006CCE91 /* CDPainDataInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
