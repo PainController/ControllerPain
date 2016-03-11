@@ -140,7 +140,7 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
                     print(error)
                 }
             } else {
-                let actionController = UIAlertController(title: "Você ainda não realizou o Breve Inventário de Dor", message: "Realize para poder marcar uma consulta", preferredStyle: .Alert)
+                let actionController = UIAlertController(title: "Você ainda não realizou o Inventário Breve de Dor", message: "Realize para poder marcar uma consulta", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "Ok", style: .Default, handler: { (alert) -> Void in
                     self.navigationController?.popToRootViewControllerAnimated(true)
                 })

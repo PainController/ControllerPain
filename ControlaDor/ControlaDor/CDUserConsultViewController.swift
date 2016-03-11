@@ -61,7 +61,7 @@ class CDUserConsultViewController: UITableViewController, UITextFieldDelegate {
                 if success {
                     self.navigationController?.popToRootViewControllerAnimated(true)
                 } else {
-                    let actionController = UIAlertController(title: "Erro na conexão", message: "Tente novamente mais tarde", preferredStyle: .Alert)
+                    let actionController = UIAlertController(title: "Erro de conexão", message: "Preencha os dados corretamente ou tente novamente mais tarde", preferredStyle: .Alert)
                     let action = UIAlertAction(title: "Ok", style: .Default, handler: { (alert) -> Void in
                         self.navigationController?.popToRootViewControllerAnimated(true)
                     })
