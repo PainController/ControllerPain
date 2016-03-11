@@ -16,7 +16,7 @@ class CDPainDatumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let frame = CGRectMake(0, 15, view.frame.size.width - 100, scrollView.frame.size.height)
+        let frame = CGRectMake(0, 0, view.frame.size.width - 100, scrollView.frame.size.height)
         scrollView.frame.size = frame.size
 
         scrollView.translatesAutoresizingMaskIntoConstraints = true

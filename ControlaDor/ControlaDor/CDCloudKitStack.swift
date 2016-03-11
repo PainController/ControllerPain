@@ -11,8 +11,29 @@ import CloudKit
 
 class CDCloudKitStack {
 
-    class func createNewRecordWithObject(object: CDPainDatum, andKey key: String) {
-        
+    class func createNewRecordWithObject(object: CDPainDatum, andKey key: String, completionHandler: (success: Bool) -> Void) {
+        let recordID = CKRecordID(recordName: "PainDatum : \(NSDate())")
+        let record = CKRecord(recordType: "PainDatum", recordID: recordID)
+
+        record["Date"] = object.date
+        record["Intensity"] = object.intensity
+        record["Locals"] = object.local
+
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            if let container: CKContainer? = CKContainer.defaultContainer() {
+                let database = container!.privateCloudDatabase
+                database.saveRecord(record) { (record, error) -> Void in
+                    if error != nil {
+                        completionHandler(success: false)
+                    } else {
+                        completionHandler(success: true)
+                    }
+                }
+            } else {
+                completionHandler(success: true)
+            }
+        }
+
     }
 
     class func createBPIRecord(results: String, images: NSData, contact: CDUserContact, indicator: UIActivityIndicatorView, completionHandler: (success: Bool) -> Void){
@@ -26,6 +47,15 @@ class CDCloudKitStack {
         record["Telephone"] = contact.telephone
         record["Email"] = contact.email
         record["Date"] = contact.date
+
+        let predicate = NSPredicate(format: "Username == %@", contact.name!)
+
+        let subscription = CKSubscription(recordType: "CDBPI", predicate: predicate, options: CKSubscriptionOptions.FiresOnRecordCreation)
+
+        let notificationInfo = CKNotificationInfo()
+        notificationInfo.alertLocalizationKey = "Nova requisição de consulta"
+        notificationInfo.shouldBadge = true
+        subscription.notificationInfo = notificationInfo
 
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
 
@@ -41,13 +71,22 @@ class CDCloudKitStack {
                             indicator.hidden = true
                             completionHandler(success: false)
                         } else {
-                            indicator.hidden = true
-                            indicator.stopAnimating()
-                            completionHandler(success: true)
+                            database.saveSubscription(subscription, completionHandler: { (subscription, error) -> Void in
+                                if error != nil {
+                                    indicator.hidden = true
+                                    indicator.stopAnimating()
+                                    print(error)
+                                    completionHandler(success: false)
+                                } else {
+                                    indicator.hidden = true
+                                    indicator.stopAnimating()
+                                    completionHandler(success: true)
+                                }
+                            })
                         }
                     }
                 } else {
-                    completionHandler(success: true)
+                    completionHandler(success: false)
                 }
             })
         }
