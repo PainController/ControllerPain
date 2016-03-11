@@ -17,7 +17,9 @@ extension CDUserViewController: CDUserPresenterOutput
 {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
-    router.passDataToNextScene(segue)
+    if segue.identifier == "Consulta" {
+        router.passDataToNextScene(segue)
+    }
   }
 }
 

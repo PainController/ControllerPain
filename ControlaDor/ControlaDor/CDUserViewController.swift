@@ -73,6 +73,7 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
     var userData: [(NSObject , String)]! = [(NSObject , String)]()
     var buttonData: [String]!
     var briefPainTask: ORKOrderedTask!
+    var userConsult: CDUserConsult!
     @IBOutlet weak var headerView: UIView!
 
     // MARK: - Table view data source
@@ -127,15 +128,24 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
                 let doctorData = data as! NSData
                 let dataPack = NSKeyedUnarchiver.unarchiveObjectWithData(doctorData) as! NSArray
                 let results = dataPack.firstObject as! [String : String]
-                _ = dataPack.lastObject as! [UIImage]
+                let images = dataPack.lastObject as! [UIImage]
 
                 do {
                     let jsonData = try NSJSONSerialization.dataWithJSONObject(results, options: .PrettyPrinted)
                     let jsonText = NSString(data: jsonData, encoding: NSASCIIStringEncoding)
-                    print(jsonText)
+                    let imagesData = NSKeyedArchiver.archivedDataWithRootObject(images)
+                    userConsult = CDUserConsult(briefPainInventoryData: String(jsonText!), imagesData: imagesData)
+                    router.navigateToSomewhere()
                 } catch {
                     print(error)
                 }
+            } else {
+                let actionController = UIAlertController(title: "Você ainda não realizou o Breve Inventário de Dor", message: "Realize para poder marcar uma consulta", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Ok", style: .Default, handler: { (alert) -> Void in
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                })
+                actionController.addAction(action)
+                self.presentViewController(actionController, animated: true, completion: nil)
             }
         }
     }
@@ -155,8 +165,6 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
             userDefaults.synchronize()
             print(userDefaults.objectForKey("BFIUpdated"))
         }
-
-        // Aguardando método de upload para o server
 
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }

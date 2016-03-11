@@ -29,3 +29,9 @@ struct CDUserViewModel
     var buttonStrings: [String]!
     var briefPainTask: ORKOrderedTask!
 }
+
+struct CDUserConsult
+{
+    var briefPainInventoryData: String!
+    var imagesData: NSData!
+}
