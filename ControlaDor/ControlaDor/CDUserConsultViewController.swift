@@ -28,7 +28,7 @@ class CDUserConsultViewController: UITableViewController, UITextFieldDelegate {
         let userData = userDefaults.objectForKey("Contact") as? [String : String]
 
         nameField.text = userData!["Nome"]
-        conveniumField.text = userData!["Convenio"]
+        conveniumField.text = userData!["Convênio"]
         telephoneField.text = userData!["Telefone"]
         mailField.text = userData!["E-mail"]
 

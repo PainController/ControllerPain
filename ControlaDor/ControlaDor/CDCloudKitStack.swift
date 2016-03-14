@@ -37,9 +37,9 @@ class CDCloudKitStack {
     }
 
     class func createSubscriptionForConsult(userName: String, completionHandler: (success: Bool) -> Void) {
-        let predicate = NSPredicate(format: "Username == %@", userName)
+        let predicate = NSPredicate(format: "TRUEPREDICATE", userName)
 
-        let subscription = CKSubscription(recordType: "CDBPI", predicate: predicate, options: CKSubscriptionOptions.FiresOnRecordCreation)
+        let subscription = CKSubscription(recordType: "CDBPI", predicate: predicate, options: .FiresOnRecordCreation)
 
         let notificationInfo = CKNotificationInfo()
         notificationInfo.alertLocalizationKey = "Nova requisição de consulta"
@@ -78,31 +78,29 @@ class CDCloudKitStack {
 
         indicator.startAnimating()
 
-        createSubscriptionForConsult(contact.name!) { (success) -> Void in
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
 
-                indicator.hidden = false
+            indicator.hidden = false
 
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    if let container: CKContainer? = CKContainer.defaultContainer() {
-                        let database = container!.publicCloudDatabase
-                        database.saveRecord(record) { (record, error) -> Void in
-                            if error != nil {
-                                indicator.stopAnimating()
-                                indicator.hidden = true
-                                completionHandler(success: false)
-                            } else {
-                                indicator.hidden = true
-                                indicator.stopAnimating()
-                                completionHandler(success: true)
-                            }
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if let container: CKContainer? = CKContainer.defaultContainer() {
+                    let database = container!.publicCloudDatabase
+                    database.saveRecord(record) { (record, error) -> Void in
+                        if error != nil {
+                            indicator.stopAnimating()
+                            indicator.hidden = true
+                            completionHandler(success: false)
+                        } else {
+                            indicator.hidden = true
+                            indicator.stopAnimating()
+                            completionHandler(success: true)
                         }
-                    } else {
-                        indicator.stopAnimating()
-                        completionHandler(success: false)
                     }
-                })
-            }
+                } else {
+                    indicator.stopAnimating()
+                    completionHandler(success: false)
+                }
+            })
         }
 
     }

@@ -14,7 +14,6 @@
 		E4507EC91C8F3B36006CCE91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4507EC71C8F3B36006CCE91 /* LaunchScreen.storyboard */; };
 		E4507EEE1C8F41B4006CCE91 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4507EEB1C8F41A1006CCE91 /* ResearchKit.framework */; };
 		E4507EEF1C8F41B4006CCE91 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E4507EEB1C8F41A1006CCE91 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E4507EF41C8F41C2006CCE91 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4507EF31C8F41C2006CCE91 /* HealthKit.framework */; };
 		E4507F421C8F4DAE006CCE91 /* CDUserConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F3B1C8F4DAE006CCE91 /* CDUserConfigurator.swift */; };
 		E4507F431C8F4DAE006CCE91 /* CDUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F3C1C8F4DAE006CCE91 /* CDUserInteractor.swift */; };
 		E4507F441C8F4DAE006CCE91 /* CDUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F3D1C8F4DAE006CCE91 /* CDUserModels.swift */; };
@@ -99,7 +98,6 @@
 		E4507EC81C8F3B36006CCE91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4507ECA1C8F3B36006CCE91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4507EE41C8F41A1006CCE91 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
-		E4507EF31C8F41C2006CCE91 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E4507F3B1C8F4DAE006CCE91 /* CDUserConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDUserConfigurator.swift; sourceTree = "<group>"; };
 		E4507F3C1C8F4DAE006CCE91 /* CDUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDUserInteractor.swift; sourceTree = "<group>"; };
 		E4507F3D1C8F4DAE006CCE91 /* CDUserModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDUserModels.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4ED41821C92273B009D715A /* CloudKit.framework in Frameworks */,
-				E4507EF41C8F41C2006CCE91 /* HealthKit.framework in Frameworks */,
 				E4507EEE1C8F41B4006CCE91 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				E4ED41811C92273B009D715A /* CloudKit.framework */,
-				E4507EF31C8F41C2006CCE91 /* HealthKit.framework */,
 				E4507EE41C8F41A1006CCE91 /* ResearchKit.xcodeproj */,
 			);
 			name = Frameworks;
@@ -340,7 +336,7 @@
 								enabled = 1;
 							};
 							com.apple.HealthKit = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
