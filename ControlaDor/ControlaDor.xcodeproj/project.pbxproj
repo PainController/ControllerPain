@@ -40,6 +40,7 @@
 		E4507F731C908BC5006CCE91 /* CDPainDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F6C1C908BC5006CCE91 /* CDPainDataWorker.swift */; };
 		E4507F771C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */; };
 		E4507F781C908EB0006CCE91 /* CDPainDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F761C908EB0006CCE91 /* CDPainDatum.swift */; };
+		E455E8E41C97273B00998F36 /* CDTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */; };
 		E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41711C90C866009D715A /* CDPainDatumTask.swift */; };
 		E4ED417B1C91F507009D715A /* OverlayPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41781C91F507009D715A /* OverlayPresentationController.swift */; };
 		E4ED417C1C91F507009D715A /* OverlayTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */; };
@@ -124,6 +125,7 @@
 		E4507F6C1C908BC5006CCE91 /* CDPainDataWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDataWorker.swift; sourceTree = "<group>"; };
 		E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDPainDatum+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4507F761C908EB0006CCE91 /* CDPainDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatum.swift; sourceTree = "<group>"; };
+		E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDTutorialViewController.swift; sourceTree = "<group>"; };
 		E4ED41711C90C866009D715A /* CDPainDatumTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatumTask.swift; sourceTree = "<group>"; };
 		E4ED41781C91F507009D715A /* OverlayPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayPresentationController.swift; sourceTree = "<group>"; };
 		E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				E4ED41771C91F4EC009D715A /* CDPainImages */,
 				E4507F651C908B9B006CCE91 /* CDPainData */,
 				E4ED41861C933890009D715A /* CDPainConsult */,
+				E455E8E71C97274700998F36 /* CDTutorial */,
 				E4507EBF1C8F3B36006CCE91 /* Main.storyboard */,
 				E4507EC51C8F3B36006CCE91 /* Assets.xcassets */,
 				E4507EC71C8F3B36006CCE91 /* LaunchScreen.storyboard */,
@@ -259,6 +262,14 @@
 				E4507F561C8F6BFC006CCE91 /* CDCoreDataStack.swift */,
 			);
 			name = CDCoreDataStack;
+			sourceTree = "<group>";
+		};
+		E455E8E71C97274700998F36 /* CDTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */,
+			);
+			name = CDTutorial;
 			sourceTree = "<group>";
 		};
 		E4ED41771C91F4EC009D715A /* CDPainImages */ = {
@@ -431,6 +442,7 @@
 				E4507F551C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift in Sources */,
 				E4507EBC1C8F3B36006CCE91 /* AppDelegate.swift in Sources */,
 				E4507F6F1C908BC5006CCE91 /* CDPainDataModels.swift in Sources */,
+				E455E8E41C97273B00998F36 /* CDTutorialViewController.swift in Sources */,
 				E4507F6E1C908BC5006CCE91 /* CDPainDataInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

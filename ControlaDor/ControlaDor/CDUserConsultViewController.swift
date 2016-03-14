@@ -22,6 +22,16 @@ class CDUserConsultViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // taking userDefaults for placeholders : agilizar processo de agendamento
+
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userData = userDefaults.objectForKey("Contact") as? [String : String]
+
+        nameField.text = userData!["Nome"]
+        conveniumField.text = userData!["Convenio"]
+        telephoneField.text = userData!["Telefone"]
+        mailField.text = userData!["E-mail"]
+
         // textFields delegation
 
         nameField.delegate = self

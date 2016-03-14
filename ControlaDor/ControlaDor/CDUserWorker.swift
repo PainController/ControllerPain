@@ -18,8 +18,14 @@ class CDUserWorker
   
     func fetchHealthAndButtonData(completionHandler: (userHealthData: [NSObject : String] , buttonStrings: [String], briefPainTask: ORKOrderedTask) -> Void)
     {
-        let userData = ["Nome" : "Isaías Lima" , "Peso" : "62kg" , "Nascimento" : "11/09/1995" , "e-mail" : "isaiahlima18@gmail.com"]
+        let userData = getUserDefaultsForUserData()
         let buttonData = ["Inventário breve de dor" , "Marcar consulta"]
         completionHandler(userHealthData: userData, buttonStrings: buttonData, briefPainTask: BriefPainInvetoryTask)
+    }
+
+    func getUserDefaultsForUserData() -> [NSObject : String] {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userData = userDefaults.objectForKey("Contact") as! [String : String]
+        return userData
     }
 }

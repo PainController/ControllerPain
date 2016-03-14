@@ -36,6 +36,34 @@ class CDCloudKitStack {
 
     }
 
+    class func createSubscriptionForConsult(userName: String, completionHandler: (success: Bool) -> Void) {
+        let predicate = NSPredicate(format: "Username == %@", userName)
+
+        let subscription = CKSubscription(recordType: "CDBPI", predicate: predicate, options: CKSubscriptionOptions.FiresOnRecordCreation)
+
+        let notificationInfo = CKNotificationInfo()
+        notificationInfo.alertLocalizationKey = "Nova requisição de consulta"
+        notificationInfo.shouldBadge = true
+        subscription.notificationInfo = notificationInfo
+
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            if let container: CKContainer? = CKContainer.defaultContainer() {
+                let database = container!.publicCloudDatabase
+                database.saveSubscription(subscription, completionHandler: { (subscription, error) -> Void in
+                    if error != nil {
+                        print(error!)
+                        completionHandler(success: false)
+                    } else {
+                        completionHandler(success: true)
+                    }
+                })
+            } else {
+                completionHandler(success: false)
+            }
+        })
+
+    }
+
     class func createBPIRecord(results: String, images: NSData, contact: CDUserContact, indicator: UIActivityIndicatorView, completionHandler: (success: Bool) -> Void){
         let recordID = CKRecordID(recordName: "CDBPI - consulta : \(NSDate())")
         let record = CKRecord(recordType: "CDBPI", recordID: recordID)
@@ -48,47 +76,33 @@ class CDCloudKitStack {
         record["Email"] = contact.email
         record["Date"] = contact.date
 
-        let predicate = NSPredicate(format: "Username == %@", contact.name!)
+        indicator.startAnimating()
 
-        let subscription = CKSubscription(recordType: "CDBPI", predicate: predicate, options: CKSubscriptionOptions.FiresOnRecordCreation)
+        createSubscriptionForConsult(contact.name!) { (success) -> Void in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
 
-        let notificationInfo = CKNotificationInfo()
-        notificationInfo.alertLocalizationKey = "Nova requisição de consulta"
-        notificationInfo.shouldBadge = true
-        subscription.notificationInfo = notificationInfo
+                indicator.hidden = false
 
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-
-            indicator.hidden = false
-            indicator.startAnimating()
-
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                if let container: CKContainer? = CKContainer.defaultContainer() {
-                    let database = container!.publicCloudDatabase
-                    database.saveRecord(record) { (record, error) -> Void in
-                        if error != nil {
-                            indicator.stopAnimating()
-                            indicator.hidden = true
-                            completionHandler(success: false)
-                        } else {
-                            database.saveSubscription(subscription, completionHandler: { (subscription, error) -> Void in
-                                if error != nil {
-                                    indicator.hidden = true
-                                    indicator.stopAnimating()
-                                    print(error)
-                                    completionHandler(success: false)
-                                } else {
-                                    indicator.hidden = true
-                                    indicator.stopAnimating()
-                                    completionHandler(success: true)
-                                }
-                            })
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    if let container: CKContainer? = CKContainer.defaultContainer() {
+                        let database = container!.publicCloudDatabase
+                        database.saveRecord(record) { (record, error) -> Void in
+                            if error != nil {
+                                indicator.stopAnimating()
+                                indicator.hidden = true
+                                completionHandler(success: false)
+                            } else {
+                                indicator.hidden = true
+                                indicator.stopAnimating()
+                                completionHandler(success: true)
+                            }
                         }
+                    } else {
+                        indicator.stopAnimating()
+                        completionHandler(success: false)
                     }
-                } else {
-                    completionHandler(success: false)
-                }
-            })
+                })
+            }
         }
 
     }
