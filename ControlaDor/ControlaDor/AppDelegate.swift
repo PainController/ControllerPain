@@ -39,11 +39,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         let ckNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
-        let alertBody = ckNotification.alertBody
         if ckNotification.notificationType == .Query {
             let recordID = (ckNotification as! CKQueryNotification).recordID
-            print(recordID)
-            print(alertBody)
+            CDCloudKitStack.fetchConsultRecord(recordID!, completionHandler: { (success, consult) -> Void in
+                if success {
+                    // tratar
+                } else {
+                    let consultData = NSEntityDescription.insertNewObjectForEntityForName("CDConsultData", inManagedObjectContext: CDCoreDataStack.sharedInstance.managedObjectContext) as! CDConsultData
+                    consultData.contact = NSKeyedArchiver.archivedDataWithRootObject(consult!.0 as! AnyObject)
+                    consultData.images = consult!.1
+                    consultData.results = consult!.2
+
+                    do {
+                        try CDCoreDataStack.sharedInstance.managedObjectContext.save()
+                    } catch {
+                        print(error)
+                    }
+                }
+            })
         }
     }
     func applicationWillResignActive(application: UIApplication) {
