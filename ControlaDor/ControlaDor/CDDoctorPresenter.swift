@@ -40,7 +40,8 @@ class CDDoctorPresenter: CDDoctorPresenterInput
 
     for entity in entities {
         let contactData = entity.contact
-        let contact = NSKeyedUnarchiver.unarchiveObjectWithData(contactData!) as! CDUserContact
+        let contactHash = NSKeyedUnarchiver.unarchiveObjectWithData(contactData!) as! [String : AnyObject]
+        let contact = CDUserContact(name: contactHash["Name"] as? String, convenio: contactHash["Convenio"] as! String, telephone: contactHash["Telephone"] as! String, email: contactHash["Email"] as! String, date: contactHash["Date"] as! NSDate)
         contacts.append(contact)
 
         let imagesData = entity.images

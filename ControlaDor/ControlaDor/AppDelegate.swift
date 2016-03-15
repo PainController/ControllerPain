@@ -31,8 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+
         application.registerUserNotificationSettings(notificationSettings)
         application.registerForRemoteNotifications()
+
+        if let options: [NSObject: AnyObject] = launchOptions {
+            let remoteNotification = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject: AnyObject]
+            if let notification = remoteNotification {
+                self.application(application, didReceiveRemoteNotification: notification)
+            }
+        }
 
         return true
     }
@@ -42,11 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ckNotification.notificationType == .Query {
             let recordID = (ckNotification as! CKQueryNotification).recordID
             CDCloudKitStack.fetchConsultRecord(recordID!, completionHandler: { (success, consult) -> Void in
-                if success {
+                if !success {
                     // tratar
                 } else {
                     let consultData = NSEntityDescription.insertNewObjectForEntityForName("CDConsultData", inManagedObjectContext: CDCoreDataStack.sharedInstance.managedObjectContext) as! CDConsultData
-                    consultData.contact = NSKeyedArchiver.archivedDataWithRootObject(consult!.0 as! AnyObject)
+                    let contact: [String : AnyObject] = ["Convenio" : consult!.0.convenio, "Date": consult!.0.date, "Email" : consult!.0.email, "Telephone" : consult!.0.telephone, "Name" : consult!.0.name!]
+                    consultData.contact = NSKeyedArchiver.archivedDataWithRootObject(contact)
                     consultData.images = consult!.1
                     consultData.results = consult!.2
 

@@ -54,15 +54,16 @@ class CDDoctorInteractor: CDDoctorInteractorInput
         persistentWorker = CDDoctorWorker()
         let entityData = request.entityData
         for entity in lastUpdatedEntries {
-            let images = NSKeyedUnarchiver.unarchiveObjectWithData(entity.images!) as! [UIImage]
-            if images == entityData.images {
+            let contactHash = NSKeyedUnarchiver.unarchiveObjectWithData(entity.contact!) as! [String : AnyObject]
+            let contact = CDUserContact(name: contactHash["Name"] as? String, convenio: contactHash["Convenio"] as! String, telephone: contactHash["Telephone"] as! String, email: contactHash["Email"] as! String, date: contactHash["Date"] as! NSDate)
+            if contact.name == entityData.contact.name && contact.convenio == entityData.contact.convenio && contact.telephone == entityData.contact.telephone && contact.email == entityData.contact.email && contact.date == entityData.contact.date {
                 persistentWorker.deleteConsult(entity, completionHandler: { (success) -> Void in
                     if success {
                         completionHandler(success: true)
                         self.output.reloadTableView()
                     } else {
                         // tratar
-                        completionHandler(success: false)
+                        completionHandler(success: true)
                     }
                 })
             }
