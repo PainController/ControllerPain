@@ -40,6 +40,15 @@
 		E4507F771C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */; };
 		E4507F781C908EB0006CCE91 /* CDPainDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507F761C908EB0006CCE91 /* CDPainDatum.swift */; };
 		E455E8E41C97273B00998F36 /* CDTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */; };
+		E455E9111C98743300998F36 /* CDDoctorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E90A1C98743300998F36 /* CDDoctorConfigurator.swift */; };
+		E455E9121C98743300998F36 /* CDDoctorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E90B1C98743300998F36 /* CDDoctorInteractor.swift */; };
+		E455E9131C98743300998F36 /* CDDoctorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E90C1C98743300998F36 /* CDDoctorModels.swift */; };
+		E455E9141C98743300998F36 /* CDDoctorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E90D1C98743300998F36 /* CDDoctorPresenter.swift */; };
+		E455E9151C98743300998F36 /* CDDoctorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E90E1C98743300998F36 /* CDDoctorRouter.swift */; };
+		E455E9161C98743300998F36 /* CDDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E90F1C98743300998F36 /* CDDoctorViewController.swift */; };
+		E455E9171C98743300998F36 /* CDDoctorWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E9101C98743300998F36 /* CDDoctorWorker.swift */; };
+		E455E91A1C98761200998F36 /* CDConsultData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E9181C98761200998F36 /* CDConsultData+CoreDataProperties.swift */; };
+		E455E91B1C98761200998F36 /* CDConsultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E9191C98761200998F36 /* CDConsultData.swift */; };
 		E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41711C90C866009D715A /* CDPainDatumTask.swift */; };
 		E4ED417B1C91F507009D715A /* OverlayPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41781C91F507009D715A /* OverlayPresentationController.swift */; };
 		E4ED417C1C91F507009D715A /* OverlayTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */; };
@@ -124,6 +133,15 @@
 		E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDPainDatum+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4507F761C908EB0006CCE91 /* CDPainDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatum.swift; sourceTree = "<group>"; };
 		E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDTutorialViewController.swift; sourceTree = "<group>"; };
+		E455E90A1C98743300998F36 /* CDDoctorConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDoctorConfigurator.swift; sourceTree = "<group>"; };
+		E455E90B1C98743300998F36 /* CDDoctorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDoctorInteractor.swift; sourceTree = "<group>"; };
+		E455E90C1C98743300998F36 /* CDDoctorModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDoctorModels.swift; sourceTree = "<group>"; };
+		E455E90D1C98743300998F36 /* CDDoctorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDoctorPresenter.swift; sourceTree = "<group>"; };
+		E455E90E1C98743300998F36 /* CDDoctorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDoctorRouter.swift; sourceTree = "<group>"; };
+		E455E90F1C98743300998F36 /* CDDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDoctorViewController.swift; sourceTree = "<group>"; };
+		E455E9101C98743300998F36 /* CDDoctorWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDoctorWorker.swift; sourceTree = "<group>"; };
+		E455E9181C98761200998F36 /* CDConsultData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDConsultData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E455E9191C98761200998F36 /* CDConsultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDConsultData.swift; sourceTree = "<group>"; };
 		E4ED41711C90C866009D715A /* CDPainDatumTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatumTask.swift; sourceTree = "<group>"; };
 		E4ED41781C91F507009D715A /* OverlayPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayPresentationController.swift; sourceTree = "<group>"; };
 		E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -169,7 +187,6 @@
 		E4507EBA1C8F3B36006CCE91 /* ControlaDor */ = {
 			isa = PBXGroup;
 			children = (
-				E4ED41801C922700009D715A /* ControlaDor.entitlements */,
 				E4507EBB1C8F3B36006CCE91 /* AppDelegate.swift */,
 				E4507F741C908BF0006CCE91 /* CDCoreDataStack */,
 				E4ED41831C922B00009D715A /* CDCloudKitStack */,
@@ -178,6 +195,7 @@
 				E4ED41771C91F4EC009D715A /* CDPainImages */,
 				E4507F651C908B9B006CCE91 /* CDPainData */,
 				E4ED41861C933890009D715A /* CDPainConsult */,
+				E455E9091C98740D00998F36 /* CDDoctor */,
 				E455E8E71C97274700998F36 /* CDTutorial */,
 				E4507EBF1C8F3B36006CCE91 /* Main.storyboard */,
 				E4507EC51C8F3B36006CCE91 /* Assets.xcassets */,
@@ -250,6 +268,8 @@
 		E4507F741C908BF0006CCE91 /* CDCoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
+				E455E9181C98761200998F36 /* CDConsultData+CoreDataProperties.swift */,
+				E455E9191C98761200998F36 /* CDConsultData.swift */,
 				E4507F751C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift */,
 				E4507F761C908EB0006CCE91 /* CDPainDatum.swift */,
 				E4507EC21C8F3B36006CCE91 /* ControlaDor.xcdatamodeld */,
@@ -268,6 +288,20 @@
 			name = CDTutorial;
 			sourceTree = "<group>";
 		};
+		E455E9091C98740D00998F36 /* CDDoctor */ = {
+			isa = PBXGroup;
+			children = (
+				E455E90A1C98743300998F36 /* CDDoctorConfigurator.swift */,
+				E455E90B1C98743300998F36 /* CDDoctorInteractor.swift */,
+				E455E90C1C98743300998F36 /* CDDoctorModels.swift */,
+				E455E90D1C98743300998F36 /* CDDoctorPresenter.swift */,
+				E455E90E1C98743300998F36 /* CDDoctorRouter.swift */,
+				E455E90F1C98743300998F36 /* CDDoctorViewController.swift */,
+				E455E9101C98743300998F36 /* CDDoctorWorker.swift */,
+			);
+			name = CDDoctor;
+			sourceTree = "<group>";
+		};
 		E4ED41771C91F4EC009D715A /* CDPainImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				E4ED41841C922B23009D715A /* CDCloudKitStack.swift */,
+				E4ED41801C922700009D715A /* ControlaDor.entitlements */,
 			);
 			name = CDCloudKitStack;
 			sourceTree = "<group>";
@@ -409,24 +444,33 @@
 				E4507EC41C8F3B36006CCE91 /* ControlaDor.xcdatamodeld in Sources */,
 				E4507F711C908BC5006CCE91 /* CDPainDataRouter.swift in Sources */,
 				E4ED417F1C91F6C4009D715A /* CDPainDatumViewController.swift in Sources */,
+				E455E9161C98743300998F36 /* CDDoctorViewController.swift in Sources */,
 				E4507F5D1C8F893C006CCE91 /* ORKBodyShaderStep.swift in Sources */,
 				E4507F531C8F6AE0006CCE91 /* CDPersistentStoreWorker.swift in Sources */,
 				E4507F441C8F4DAE006CCE91 /* CDUserModels.swift in Sources */,
 				E4507F701C908BC5006CCE91 /* CDPainDataPresenter.swift in Sources */,
 				E4507F571C8F6BFC006CCE91 /* CDCoreDataStack.swift in Sources */,
 				E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */,
+				E455E9121C98743300998F36 /* CDDoctorInteractor.swift in Sources */,
 				E4507F481C8F4DAE006CCE91 /* CDUserWorker.swift in Sources */,
 				E4507F771C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift in Sources */,
 				E4ED41851C922B23009D715A /* CDCloudKitStack.swift in Sources */,
 				E4507F471C8F4DAE006CCE91 /* CDUserViewController.swift in Sources */,
+				E455E91A1C98761200998F36 /* CDConsultData+CoreDataProperties.swift in Sources */,
 				E4ED41881C9338B8009D715A /* CDUserConsultViewController.swift in Sources */,
 				E4507F721C908BC5006CCE91 /* CDPainDataViewController.swift in Sources */,
+				E455E9131C98743300998F36 /* CDDoctorModels.swift in Sources */,
+				E455E9151C98743300998F36 /* CDDoctorRouter.swift in Sources */,
 				E4507F451C8F4DAE006CCE91 /* CDUserPresenter.swift in Sources */,
 				E4507F421C8F4DAE006CCE91 /* CDUserConfigurator.swift in Sources */,
+				E455E91B1C98761200998F36 /* CDConsultData.swift in Sources */,
 				E4507F731C908BC5006CCE91 /* CDPainDataWorker.swift in Sources */,
+				E455E9171C98743300998F36 /* CDDoctorWorker.swift in Sources */,
 				E4507F781C908EB0006CCE91 /* CDPainDatum.swift in Sources */,
+				E455E9141C98743300998F36 /* CDDoctorPresenter.swift in Sources */,
 				E4ED417D1C91F507009D715A /* BouncyViewControllerAnimator.swift in Sources */,
 				E4507F6D1C908BC5006CCE91 /* CDPainDataConfigurator.swift in Sources */,
+				E455E9111C98743300998F36 /* CDDoctorConfigurator.swift in Sources */,
 				E4507F631C8F8A4A006CCE91 /* ViewController.swift in Sources */,
 				E4507F611C8F894B006CCE91 /* ORKTaskResultString.swift in Sources */,
 				E4507F591C8F871C006CCE91 /* BriefPainInvetoryTask.swift in Sources */,

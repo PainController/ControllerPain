@@ -21,10 +21,10 @@ class CDPersistentStoreWorker
         fetchRequest = NSFetchRequest(entityName: entityName)
     }
   
-    func makeFetchRequest(responseHandler: (entities: [CDPainDatum]) -> Void) throws
+    func makeFetchRequest(responseHandler: (entities: [AnyObject]) -> Void) throws
     {
         do {
-            let entities = try CDCoreDataStack.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [CDPainDatum]
+            let entities = try CDCoreDataStack.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest)
             responseHandler(entities: entities)
         } catch {
             throw error

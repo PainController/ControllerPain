@@ -42,8 +42,8 @@ class CDPainDataInteractor: CDPainDataInteractorInput
 
     do {
         try worker.makeFetchRequest({ (entities) -> Void in
-            self.lastUpdateEntities = entities
-            let response = CDPainDataResponse(painEntity: entities)
+            self.lastUpdateEntities = entities as! [CDPainDatum]
+            let response = CDPainDataResponse(painEntity: entities as! [CDPainDatum])
             self.output.presentEntities(response)
         })
     } catch {
@@ -69,7 +69,7 @@ class CDPainDataInteractor: CDPainDataInteractorInput
 
     for entity in lastUpdateEntities {
         if entity.date == request.date {
-            self.persistentWorker.deletePainDatum(entity, completionHandler: { (success) -> Void in
+            persistentWorker.deletePainDatum(entity, completionHandler: { (success) -> Void in
                 if success {
                     completionHandler(success: true)
                     self.output.reloadTableView()
