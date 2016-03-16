@@ -132,4 +132,60 @@ class CDCloudKitStack {
         }
     }
 
+    class func deleteRecord(recordID: CKRecordID, completionHandler: (success: Bool) -> Void) {
+        if let container: CKContainer? = CKContainer.defaultContainer() {
+            let database = container!.publicCloudDatabase
+
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                database.deleteRecordWithID(recordID, completionHandler: { (aRecordID, error) -> Void in
+                    if error != nil {
+                        completionHandler(success: false)
+                    } else {
+                        completionHandler(success: true)
+                    }
+                })
+            })
+        }
+
+    }
+
+    class func deleteAllRecords(recordType: String, completionHandler: (success: Bool) -> Void) {
+        fetchAllRecords(recordType) { (success, records) -> Void in
+            if success {
+                if let cloudRecords = records {
+                    for record in cloudRecords {
+                        deleteRecord(record.recordID, completionHandler: { (success) -> Void in
+                            if !success {
+                                completionHandler(success: false)
+                            }
+                        })
+                    }
+                    completionHandler(success: true)
+                } else {
+                    completionHandler(success: false)
+                }
+            } else {
+                completionHandler(success: false)
+            }
+        }
+    }
+
+    class func fetchAllRecords(recordType: String, completionHandler: (success: Bool, records: [CKRecord]?) -> Void) {
+        if let container: CKContainer? = CKContainer.defaultContainer() {
+            let database = container!.publicCloudDatabase
+            let predicate = NSPredicate(format: "TRUEPREDICATE", recordType)
+            let query = CKQuery(recordType: recordType, predicate: predicate)
+
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                database.performQuery(query, inZoneWithID: nil, completionHandler: { (records, error) -> Void in
+                    if error != nil {
+                        completionHandler(success: false, records: nil)
+                    } else {
+                        completionHandler(success: true, records: records)
+                    }
+                })
+            })
+        }
+    }
+
 }
