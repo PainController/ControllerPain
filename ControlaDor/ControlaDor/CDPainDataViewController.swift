@@ -16,6 +16,8 @@ protocol CDPainDataViewControllerInput
 {
     func dataSource(viewModel: CDPainDataViewModel)
     func reloadTableView()
+    func activityIndicatorAnimate()
+    func alertControllerPresent(title: String, message: String)
 }
 
 protocol CDPainDataViewControllerOutput
@@ -24,6 +26,7 @@ protocol CDPainDataViewControllerOutput
     func createPainDatum(request: CDPainDatumRequest)
     func deletePainDatum(request: CDPainDatumDeleteRequest, completionHandler: (success: Bool) -> Void)
     func decodeImagesFromString(dataString: String) -> [UIImage]?
+    func sendPainDataToDoctor(request: CDPainDataServerRequest)
 }
 
 class CDPainDataViewController: UITableViewController, CDPainDataViewControllerInput, ORKTaskViewControllerDelegate
@@ -79,6 +82,24 @@ class CDPainDataViewController: UITableViewController, CDPainDataViewControllerI
         taskViewController.outputDirectory = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0], isDirectory: true)
         presentViewController(taskViewController, animated: true, completion: nil)
 
+    }
+
+    @IBAction func sendToServer(sender: AnyObject) {
+        let request = CDPainDataServerRequest(painData: painData)
+        output.sendPainDataToDoctor(request)
+    }
+
+    func activityIndicatorAnimate() {
+        
+    }
+
+    func alertControllerPresent(title: String, message: String) {
+        let actionController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: { (alert) -> Void in
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        })
+        actionController.addAction(action)
+        presentViewController(actionController, animated: true, completion: nil)
     }
 
     // MARK: TableView instance properties

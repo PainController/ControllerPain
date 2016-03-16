@@ -15,12 +15,16 @@ protocol CDPainDataPresenterInput
 {
   func presentEntities(response: CDPainDataResponse)
   func reloadTableView()
+  func activityIndicatorAnimate()
+  func alertControllerPresent(title: String, message: String)
 }
 
 protocol CDPainDataPresenterOutput: class
 {
   func dataSource(viewModel: CDPainDataViewModel)
   func reloadTableView()
+  func activityIndicatorAnimate()
+  func alertControllerPresent(title: String, message: String)
 }
 
 class CDPainDataPresenter: CDPainDataPresenterInput
@@ -47,5 +51,15 @@ class CDPainDataPresenter: CDPainDataPresenterInput
   func reloadTableView()
   {
     output.reloadTableView()
+  }
+
+  func alertControllerPresent(title: String, message: String)
+  {
+    output.alertControllerPresent(title, message: message)
+  }
+
+  func activityIndicatorAnimate()
+  {
+    output.activityIndicatorAnimate()
   }
 }

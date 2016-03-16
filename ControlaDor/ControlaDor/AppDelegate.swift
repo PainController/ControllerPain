@@ -30,44 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefaults.synchronize()
         }
 
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-
-        application.registerUserNotificationSettings(notificationSettings)
-        application.registerForRemoteNotifications()
-
-        if let options: [NSObject: AnyObject] = launchOptions {
-            let remoteNotification = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject: AnyObject]
-            if let notification = remoteNotification {
-                self.application(application, didReceiveRemoteNotification: notification)
-            }
-        }
-
         return true
     }
 
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        let ckNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
-        if ckNotification.notificationType == .Query {
-            let recordID = (ckNotification as! CKQueryNotification).recordID
-            CDCloudKitStack.fetchConsultRecord(recordID!, completionHandler: { (success, consult) -> Void in
-                if !success {
-                    // tratar
-                } else {
-                    let consultData = NSEntityDescription.insertNewObjectForEntityForName("CDConsultData", inManagedObjectContext: CDCoreDataStack.sharedInstance.managedObjectContext) as! CDConsultData
-                    let contact: [String : AnyObject] = ["Convenio" : consult!.0.convenio, "Date": consult!.0.date, "Email" : consult!.0.email, "Telephone" : consult!.0.telephone, "Name" : consult!.0.name!]
-                    consultData.contact = NSKeyedArchiver.archivedDataWithRootObject(contact)
-                    consultData.images = consult!.1
-                    consultData.results = consult!.2
-
-                    do {
-                        try CDCoreDataStack.sharedInstance.managedObjectContext.save()
-                    } catch {
-                        print(error)
-                    }
-                }
-            })
-        }
-    }
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

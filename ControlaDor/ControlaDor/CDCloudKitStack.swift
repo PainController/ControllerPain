@@ -11,17 +11,17 @@ import CloudKit
 
 class CDCloudKitStack {
 
-    class func createNewRecordWithObject(object: CDPainDatum, andKey key: String, completionHandler: (success: Bool) -> Void) {
+    class func createNewRecordWithObject(object: (NSDate,Double,String), andKey key: String?, completionHandler: (success: Bool) -> Void) {
         let recordID = CKRecordID(recordName: "PainDatum : \(NSDate())")
         let record = CKRecord(recordType: "PainDatum", recordID: recordID)
 
-        record["Date"] = object.date
-        record["Intensity"] = object.intensity
-        record["Locals"] = object.local
+        record["Date"] = object.0
+        record["Intensity"] = object.1
+        record["Locais"] = object.2
 
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             if let container: CKContainer? = CKContainer.defaultContainer() {
-                let database = container!.privateCloudDatabase
+                let database = container!.publicCloudDatabase
                 database.saveRecord(record) { (record, error) -> Void in
                     if error != nil {
                         completionHandler(success: false)
@@ -34,6 +34,17 @@ class CDCloudKitStack {
             }
         }
 
+    }
+
+    class func createRecords(records: CDPainDataServerRequest, completionHandler: (success: Bool) -> Void) {
+        for record in records.painData {
+            createNewRecordWithObject(record, andKey: nil, completionHandler: { (success) -> Void in
+                if !success {
+                    completionHandler(success: false)
+                    return
+                }
+            })
+        }
     }
 
     class func createSubscriptionForConsult(userName: String, completionHandler: (success: Bool) -> Void) {
@@ -157,15 +168,19 @@ class CDCloudKitStack {
                         deleteRecord(record.recordID, completionHandler: { (success) -> Void in
                             if !success {
                                 completionHandler(success: false)
+                                return
                             }
                         })
                     }
                     completionHandler(success: true)
+                    return
                 } else {
                     completionHandler(success: false)
+                    return
                 }
             } else {
                 completionHandler(success: false)
+                return
             }
         }
     }

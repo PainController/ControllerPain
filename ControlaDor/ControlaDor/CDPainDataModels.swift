@@ -40,3 +40,8 @@ struct CDPainDatumDeleteRequest
     var intensity: Double
     var local: String!
 }
+
+struct CDPainDataServerRequest
+{
+    var painData:[(NSDate,Double,String)]!
+}

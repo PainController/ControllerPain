@@ -17,12 +17,15 @@ protocol CDPainDataInteractorInput
   func createPainDatum(request: CDPainDatumRequest)
   func deletePainDatum(request: CDPainDatumDeleteRequest, completionHandler: (success: Bool) -> Void)
   func decodeImagesFromString(dataString: String) -> [UIImage]?
+  func sendPainDataToDoctor(request: CDPainDataServerRequest)
 }
 
 protocol CDPainDataInteractorOutput
 {
   func presentEntities(response: CDPainDataResponse)
   func reloadTableView()
+  func activityIndicatorAnimate()
+  func alertControllerPresent(title: String, message: String)
 }
 
 class CDPainDataInteractor: CDPainDataInteractorInput
@@ -48,6 +51,19 @@ class CDPainDataInteractor: CDPainDataInteractorInput
         })
     } catch {
         print(error)
+    }
+  }
+
+  func sendPainDataToDoctor(request: CDPainDataServerRequest)
+  {
+    CDCloudKitStack.createRecords(request) { (success) -> Void in
+        if success {
+            self.output.activityIndicatorAnimate()
+            self.output.alertControllerPresent("Dados enviados", message: "O doutor já possui acesso aos seus dados de dor")
+        } else {
+            self.output.activityIndicatorAnimate()
+            self.output.alertControllerPresent("Erro de conexão", message: "Não conseguimos enviar seus dados")
+        }
     }
   }
 
