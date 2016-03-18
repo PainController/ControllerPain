@@ -23,7 +23,7 @@ protocol CDUserViewControllerOutput
     func requestHealthAndData(request: CDUserRequest)
 }
 
-class CDUserViewController: UITableViewController, CDUserViewControllerInput, ORKTaskViewControllerDelegate
+class CDUserViewController: UITableViewController, CDUserViewControllerInput, ORKTaskViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     var output: CDUserViewControllerOutput!
     var router: CDUserRouter!
@@ -43,6 +43,11 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
         super.viewDidLoad()
         loadHealthDataAndDataSource()
         headerView.frame.size.height = 400
+        photoView.layer.masksToBounds = false
+        photoView.layer.cornerRadius = photoView.frame.size.width/2
+        if let imageData = NSUserDefaults.standardUserDefaults().objectForKey("UserImage") as? NSData {
+            photoView.image = UIImage(data: imageData)
+        }
     }
   
     // MARK: Event handling
@@ -75,6 +80,7 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
     var briefPainTask: ORKOrderedTask!
     var userConsult: CDUserConsult!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var photoView: UIImageView!
 
     // MARK: - Table view data source
 
@@ -148,6 +154,25 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
                 self.presentViewController(actionController, animated: true, completion: nil)
             }
         }
+    }
+
+    @IBAction func takePicture(sender: AnyObject) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .Camera
+        imagePicker.cameraDevice = .Front
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+
+    // MARK: UIImagePickerControllerDelegate
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let encodedImage = UIImageJPEGRepresentation(image, 1)
+        userDefaults.setObject(encodedImage, forKey: "UserImage")
+        photoView.image = image
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: ORKTaskViewControllerDelegate
