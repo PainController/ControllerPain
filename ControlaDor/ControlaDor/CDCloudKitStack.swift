@@ -43,7 +43,7 @@ class CDCloudKitStack {
                         completionHandler(success: true)
                     } else {
                         print(error!)
-                        completionHandler(success: true)
+                        completionHandler(success: false)
                     }
                 })
             })
@@ -59,19 +59,22 @@ class CDCloudKitStack {
         recordsToUpload = records
     }
 
-    class func uploadRecords() {
+    class func uploadRecords(completionHandler: ((success: Bool) -> Void)?) {
         if index < recordsToUpload.count {
             uploadRecord(recordsToUpload[index]) { (success) -> Void in
                 if success && index < recordsToUpload.count {
                     index++
-                    uploadRecords()
+                    uploadRecords({ (success) -> Void in
+                    })
                 } else if success && index == recordsToUpload.count {
                     index = 0
+                } else if !success {
+                    completionHandler?(success: false)
                 }
             }
         } else {
-            let notificationCenter = NSNotificationCenter.defaultCenter()
-            notificationCenter.postNotificationName("Stop", object: nil)
+            let center = NSNotificationCenter.defaultCenter()
+            center.postNotificationName("Alert", object: nil)
         }
     }
 

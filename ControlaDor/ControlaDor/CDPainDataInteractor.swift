@@ -38,7 +38,7 @@ class CDPainDataInteractor: NSObject, CDPainDataInteractorInput
     override init() {
         super.init()
         let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "animate", name: "Stop", object: nil)
+        notificationCenter.addObserver(self, selector: "animate", name: "Alert", object: nil)
     }
   
   // MARK: Business logic
@@ -65,12 +65,16 @@ class CDPainDataInteractor: NSObject, CDPainDataInteractorInput
     output.activityIndicatorAnimate(.Start)
 
     CDCloudKitStack.createRecords(request)
-    CDCloudKitStack.uploadRecords()
+    CDCloudKitStack.uploadRecords { (success) -> Void in
+        if !success {
+            self.output.alertControllerPresent("Erro de conexão", message: "Verifique se você está conectado à internet")
+        }
+    }
   }
 
   func animate()
   {
-    output.activityIndicatorAnimate(.Stop)
+    output.alertControllerPresent("Dados de dor enviados", message: "Pode retirá-los de seu celular")
   }
 
   func createPainDatum(request: CDPainDatumRequest)

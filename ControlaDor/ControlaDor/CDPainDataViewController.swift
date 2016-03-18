@@ -92,7 +92,7 @@ class CDPainDataViewController: UITableViewController, CDPainDataViewControllerI
     func alertControllerPresent(title: String, message: String) {
         let actionController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "Ok", style: .Default, handler: { (alert) -> Void in
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            self.activityIndicatorAnimate(.Stop)
         })
         actionController.addAction(action)
         presentViewController(actionController, animated: true, completion: nil)
