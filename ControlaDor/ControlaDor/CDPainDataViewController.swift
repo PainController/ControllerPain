@@ -16,8 +16,8 @@ protocol CDPainDataViewControllerInput
 {
     func dataSource(viewModel: CDPainDataViewModel)
     func reloadTableView()
-    func activityIndicatorAnimate()
     func alertControllerPresent(title: String, message: String)
+    func activityIndicatorAnimate(trigger: CDActivityViewAnimator)
 }
 
 protocol CDPainDataViewControllerOutput
@@ -89,10 +89,6 @@ class CDPainDataViewController: UITableViewController, CDPainDataViewControllerI
         output.sendPainDataToDoctor(request)
     }
 
-    func activityIndicatorAnimate() {
-        
-    }
-
     func alertControllerPresent(title: String, message: String) {
         let actionController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "Ok", style: .Default, handler: { (alert) -> Void in
@@ -107,6 +103,24 @@ class CDPainDataViewController: UITableViewController, CDPainDataViewControllerI
     let reuseIdentifier = "PainDatum"
     var painData:[(NSDate,Double,String)]!
     let overlayTransitioningDelegate = OverlayTransitioningDelegate()
+    var overlay: CDActivityView!
+
+    func activityIndicatorAnimate(trigger: CDActivityViewAnimator) {
+        switch trigger {
+        case .Start:
+            if overlay == nil {
+                overlay = CDActivityView(frame: view.frame)
+                overlay.configureAppearance()
+                overlay.hidden = true
+                view.addSubview(overlay)
+            }
+            overlay.hidden = false
+            overlay.animateIndicatorView(.Start)
+        case .Stop:
+            overlay.hidden = true
+            overlay.animateIndicatorView(.Stop)
+        }
+    }
 
     // MARK: TableView DataSource and Delegate Methods
 

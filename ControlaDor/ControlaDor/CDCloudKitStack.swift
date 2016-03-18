@@ -9,41 +9,69 @@
 import UIKit
 import CloudKit
 
+func random() -> CGFloat {
+    return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+}
+
+func random(min min: CGFloat, max: CGFloat) -> CGFloat {
+    return random() * (max - min) + min
+}
+
 class CDCloudKitStack {
 
-    class func createNewRecordWithObject(object: (NSDate,Double,String), andKey key: String?, completionHandler: (success: Bool) -> Void) {
-        let recordID = CKRecordID(recordName: "PainDatum : \(NSDate())")
+    private static var recordsToUpload: [CKRecord]!
+    private static var index = 0
+
+    private class func createNewRecordWithObject(object: (NSDate,Double,String)) -> CKRecord {
+        let recordID = CKRecordID(recordName: "PainDatum : \(random(min: -1, max: 1) * random()) : \(NSDate())")
         let record = CKRecord(recordType: "PainDatum", recordID: recordID)
 
         record["Date"] = object.0
         record["Intensity"] = object.1
         record["Locais"] = object.2
+        record["Name"] = "PainDatum : \(NSDate())"
 
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            if let container: CKContainer? = CKContainer.defaultContainer() {
-                let database = container!.publicCloudDatabase
-                database.saveRecord(record) { (record, error) -> Void in
-                    if error != nil {
-                        completionHandler(success: false)
-                    } else {
-                        completionHandler(success: true)
-                    }
-                }
-            } else {
-                completionHandler(success: true)
-            }
-        }
-
+        return record
     }
 
-    class func createRecords(records: CDPainDataServerRequest, completionHandler: (success: Bool) -> Void) {
-        for record in records.painData {
-            createNewRecordWithObject(record, andKey: nil, completionHandler: { (success) -> Void in
-                if !success {
-                    completionHandler(success: false)
-                    return
-                }
+    class func uploadRecord(record: CKRecord, completionHandler: (success: Bool) -> Void) {
+        if let container: CKContainer? = CKContainer.defaultContainer() {
+            let database = container?.publicCloudDatabase
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                database?.saveRecord(record, completionHandler: { (record, error) -> Void in
+                    if error == nil {
+                        completionHandler(success: true)
+                    } else {
+                        print(error!)
+                        completionHandler(success: true)
+                    }
+                })
             })
+        }
+    }
+
+    class func createRecords(request: CDPainDataServerRequest) {
+        var records = [CKRecord]()
+        for tuple in request.painData {
+            let record = createNewRecordWithObject(tuple)
+            records.append(record)
+        }
+        recordsToUpload = records
+    }
+
+    class func uploadRecords() {
+        if index < recordsToUpload.count {
+            uploadRecord(recordsToUpload[index]) { (success) -> Void in
+                if success && index < recordsToUpload.count {
+                    index++
+                    uploadRecords()
+                } else if success && index == recordsToUpload.count {
+                    index = 0
+                }
+            }
+        } else {
+            let notificationCenter = NSNotificationCenter.defaultCenter()
+            notificationCenter.postNotificationName("Stop", object: nil)
         }
     }
 
@@ -145,11 +173,12 @@ class CDCloudKitStack {
 
     class func deleteRecord(recordID: CKRecordID, completionHandler: (success: Bool) -> Void) {
         if let container: CKContainer? = CKContainer.defaultContainer() {
-            let database = container!.publicCloudDatabase
+            let database = container!.privateCloudDatabase
 
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 database.deleteRecordWithID(recordID, completionHandler: { (aRecordID, error) -> Void in
                     if error != nil {
+                        print(error)
                         completionHandler(success: false)
                     } else {
                         completionHandler(success: true)
@@ -157,7 +186,6 @@ class CDCloudKitStack {
                 })
             })
         }
-
     }
 
     class func deleteAllRecords(recordType: String, completionHandler: (success: Bool) -> Void) {
@@ -172,7 +200,6 @@ class CDCloudKitStack {
                             }
                         })
                     }
-                    completionHandler(success: true)
                     return
                 } else {
                     completionHandler(success: false)

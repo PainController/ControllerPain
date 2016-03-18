@@ -24,16 +24,22 @@ protocol CDPainDataInteractorOutput
 {
   func presentEntities(response: CDPainDataResponse)
   func reloadTableView()
-  func activityIndicatorAnimate()
+  func activityIndicatorAnimate(trigger: CDActivityViewAnimator)
   func alertControllerPresent(title: String, message: String)
 }
 
-class CDPainDataInteractor: CDPainDataInteractorInput
+class CDPainDataInteractor: NSObject, CDPainDataInteractorInput
 {
   var output: CDPainDataInteractorOutput!
   var worker: CDPersistentStoreWorker!
   var persistentWorker: CDPainDataWorker!
   var lastUpdateEntities: [CDPainDatum]!
+
+    override init() {
+        super.init()
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "animate", name: "Stop", object: nil)
+    }
   
   // MARK: Business logic
   
@@ -56,15 +62,15 @@ class CDPainDataInteractor: CDPainDataInteractorInput
 
   func sendPainDataToDoctor(request: CDPainDataServerRequest)
   {
-    CDCloudKitStack.createRecords(request) { (success) -> Void in
-        if success {
-            self.output.activityIndicatorAnimate()
-            self.output.alertControllerPresent("Dados enviados", message: "O doutor já possui acesso aos seus dados de dor")
-        } else {
-            self.output.activityIndicatorAnimate()
-            self.output.alertControllerPresent("Erro de conexão", message: "Não conseguimos enviar seus dados")
-        }
-    }
+    output.activityIndicatorAnimate(.Start)
+
+    CDCloudKitStack.createRecords(request)
+    CDCloudKitStack.uploadRecords()
+  }
+
+  func animate()
+  {
+    output.activityIndicatorAnimate(.Stop)
   }
 
   func createPainDatum(request: CDPainDatumRequest)

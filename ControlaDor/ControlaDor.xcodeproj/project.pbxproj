@@ -42,6 +42,7 @@
 		E455E8E41C97273B00998F36 /* CDTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */; };
 		E455E91A1C98761200998F36 /* CDConsultData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E9181C98761200998F36 /* CDConsultData+CoreDataProperties.swift */; };
 		E455E91B1C98761200998F36 /* CDConsultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E9191C98761200998F36 /* CDConsultData.swift */; };
+		E4AC6B9E1C9B1FF4009390A1 /* CDActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6B9D1C9B1FF4009390A1 /* CDActivityView.swift */; };
 		E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41711C90C866009D715A /* CDPainDatumTask.swift */; };
 		E4ED417B1C91F507009D715A /* OverlayPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41781C91F507009D715A /* OverlayPresentationController.swift */; };
 		E4ED417C1C91F507009D715A /* OverlayTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */; };
@@ -128,6 +129,7 @@
 		E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDTutorialViewController.swift; sourceTree = "<group>"; };
 		E455E9181C98761200998F36 /* CDConsultData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDConsultData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E455E9191C98761200998F36 /* CDConsultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDConsultData.swift; sourceTree = "<group>"; };
+		E4AC6B9D1C9B1FF4009390A1 /* CDActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDActivityView.swift; sourceTree = "<group>"; };
 		E4ED41711C90C866009D715A /* CDPainDatumTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatumTask.swift; sourceTree = "<group>"; };
 		E4ED41781C91F507009D715A /* OverlayPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayPresentationController.swift; sourceTree = "<group>"; };
 		E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				E4507F6A1C908BC5006CCE91 /* CDPainDataRouter.swift */,
 				E4507F6B1C908BC5006CCE91 /* CDPainDataViewController.swift */,
 				E4507F6C1C908BC5006CCE91 /* CDPainDataWorker.swift */,
+				E4AC6B9D1C9B1FF4009390A1 /* CDActivityView.swift */,
 			);
 			name = CDPainData;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				E4507F5B1C8F891B006CCE91 /* IRLTaskViewController.swift in Sources */,
 				E4ED418A1C933D5B009D715A /* CDUserContact.swift in Sources */,
 				E4ED417C1C91F507009D715A /* OverlayTransitioningDelegate.swift in Sources */,
+				E4AC6B9E1C9B1FF4009390A1 /* CDActivityView.swift in Sources */,
 				E4507F551C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift in Sources */,
 				E4507EBC1C8F3B36006CCE91 /* AppDelegate.swift in Sources */,
 				E4507F6F1C908BC5006CCE91 /* CDPainDataModels.swift in Sources */,
