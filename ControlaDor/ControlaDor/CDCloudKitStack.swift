@@ -68,11 +68,13 @@ class CDCloudKitStack {
                     })
                 } else if success && index == recordsToUpload.count {
                     index = 0
+                    recordsToUpload = []
                 } else if !success {
                     completionHandler?(success: false)
                 }
             }
         } else {
+            recordsToUpload = []
             let center = NSNotificationCenter.defaultCenter()
             center.postNotificationName("Alert", object: nil)
         }
