@@ -48,6 +48,21 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
         if let imageData = NSUserDefaults.standardUserDefaults().objectForKey("UserImage") as? NSData {
             photoView.image = UIImage(data: imageData)
         }
+
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let firstOpen = userDefaults.boolForKey("FirstOpen")
+
+        if !firstOpen {
+            let tutorial = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Root")
+            presentViewController(tutorial, animated: true, completion: nil)
+            userDefaults.setBool(true, forKey: "FirstOpen")
+            userDefaults.synchronize()
+        }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadHealthDataAndDataSource()
     }
   
     // MARK: Event handling
@@ -65,12 +80,14 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
     func displayDataSource(viewModel: CDUserViewModel)
     {
         // NOTE: Display the result from the Presenter
-    
+
+        userData = []
         for (_,element) in viewModel.userHealthData.enumerate() {
             userData.append((element.0,element.1))
         }
         buttonData = viewModel.buttonStrings
         briefPainTask = viewModel.briefPainTask
+        tableView.reloadData()
     }
 
     // MARK: TableView population methods
@@ -105,8 +122,12 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("userData", forIndexPath: indexPath)
-            let datum = userData[indexPath.row]
+            var datum = userData[indexPath.row]
             cell.textLabel?.text = datum.0 as? String
+            if datum.0 == "E-mail" {
+                let components = datum.1.componentsSeparatedByString("@")
+                datum.1 = components.first! + "@\n" + components.last!
+            }
             cell.detailTextLabel?.text = datum.1
             return cell
         case 1:
@@ -156,25 +177,37 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
         }
     }
 
+    @IBAction func infoApp(sender: AnyObject) {
+        let tutorial = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Root")
+        presentViewController(tutorial, animated: true, completion: nil)
+    }
+
+    @IBAction func dataEdit(sender: AnyObject) {
+        let tutorialController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Tutorial")
+        navigationController?.pushViewController(tutorialController, animated: true)
+    }
+
     @IBAction func takePicture(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
-        imagePicker.cameraDevice = .Front
 
-        let alertController = UIAlertController(title: "eseja tirar a foto ou escolher da biblioteca?", message: nil, preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: "Deseja tirar a foto ou escolher da biblioteca?", message: nil, preferredStyle: .ActionSheet)
         let camera = UIAlertAction(title: "Câmera", style: .Default) { (action) -> Void in
             imagePicker.sourceType = .Camera
+            imagePicker.cameraDevice = .Front
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
         let library = UIAlertAction(title: "Biblioteca de fotos", style: .Default) { (action) -> Void in
-            imagePicker.sourceType = .PhotoLibrary
+            imagePicker.sourceType = .SavedPhotosAlbum
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
-        let cancel = UIAlertAction(title: Cancelar, style: .Cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
         alertController.addAction(camera)
         alertController.addAction(library)
         alertController.addAction(cancel)
+
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
     // MARK: UIImagePickerControllerDelegate

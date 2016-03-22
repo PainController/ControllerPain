@@ -187,7 +187,7 @@ class CDPainDataViewController: UITableViewController, CDPainDataViewControllerI
             prepareOverlayVC(controller)
             presentViewController(controller, animated: true, completion: nil)
         } else {
-            print(__FUNCTION__,"returned nil")
+            print(#function,"returned nil")
         }
     }
 

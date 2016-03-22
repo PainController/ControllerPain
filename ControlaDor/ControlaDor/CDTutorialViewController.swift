@@ -33,8 +33,15 @@ class CDTutorialViewController: UITableViewController, UITextFieldDelegate {
     }
 
     func createUserDefaults(data: [String : String]) {
+        cleanUserDefaults()
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(data, forKey: "Contact")
+        userDefaults.synchronize()
+    }
+
+    func cleanUserDefaults() {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(nil, forKey: "Contact")
         userDefaults.synchronize()
     }
 
@@ -43,10 +50,13 @@ class CDTutorialViewController: UITableViewController, UITextFieldDelegate {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 1 && indexPath.row == 0 {
+        let conditional = nameField.text == "" || conveniumField.text == "" || phoneField.text == "" || mailField.text == ""
+        if indexPath.section == 1 && indexPath.row == 0 && !conditional {
             let data = textFieldDataArray()
             createUserDefaults(data)
-            performSegueWithIdentifier("Tutorial", sender: self)
+            navigationController?.popToRootViewControllerAnimated(true)
+        } else if indexPath.section == 1 && indexPath.row == 0 && conditional {
+            navigationController?.popToRootViewControllerAnimated(true)
         }
     }
 

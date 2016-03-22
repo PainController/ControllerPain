@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E64a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49r-5B-pYC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E64a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49r-5B-pYC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -63,7 +63,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yvQ-I5-Xkm">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yvQ-I5-Xkm">
                                             <rect key="frame" x="533.5" y="10" width="51.5" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -96,7 +96,18 @@
                             <outlet property="delegate" destination="E04-Be-AGV" id="uyJ-Sg-w9q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Perfil" id="uGo-RS-7uJ"/>
+                    <navigationItem key="navigationItem" title="Perfil" id="uGo-RS-7uJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="4uW-mi-0lL">
+                            <connections>
+                                <action selector="dataEdit:" destination="E04-Be-AGV" id="2Du-Yc-qQ2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="info" id="pxs-fg-T33">
+                            <connections>
+                                <action selector="infoApp:" destination="E04-Be-AGV" id="Jk6-qj-41F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="headerView" destination="uQF-bR-cqD" id="iR8-KR-mLw"/>
                         <outlet property="photoView" destination="Cj3-fC-gr0" id="qJO-WR-4EW"/>
@@ -697,7 +708,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Continuar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IIk-ck-l1H">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IIk-ck-l1H">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -722,17 +733,94 @@
                         <outlet property="mailField" destination="o5k-9D-tHY" id="P5u-IH-8Co"/>
                         <outlet property="nameField" destination="qxJ-BW-aKh" id="oXv-5A-q1O"/>
                         <outlet property="phoneField" destination="55S-M9-SNM" id="yWl-7e-WDn"/>
-                        <segue destination="49r-5B-pYC" kind="show" identifier="Tutorial" id="ghI-Cb-YbW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rns-NN-s7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2018" y="1605"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="BVS-Ai-EG1">
+            <objects>
+                <pageViewController storyboardIdentifier="Page" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TQr-xB-SAV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7mO-OD-T1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3521" y="1605"/>
+        </scene>
+        <!--Data View Controller-->
+        <scene sceneID="9Wj-VL-dA1">
+            <objects>
+                <viewController storyboardIdentifier="DataViewController" id="hHE-er-ACW" customClass="DataViewController" customModule="ControlaDor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MTt-2x-QF3"/>
+                        <viewControllerLayoutGuide type="bottom" id="B02-iY-nok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bdh-Dy-uV0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GD4-RT-VdD">
+                                <rect key="frame" x="235" y="273" width="130" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="11q-ge-zmg"/>
+                                    <constraint firstAttribute="width" constant="130" id="LyG-bm-cOw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Comece">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="hHE-er-ACW" eventType="touchUpInside" id="kgc-D7-y5D"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YXO-R4-r9m">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YXO-R4-r9m" firstAttribute="trailing" secondItem="Bdh-Dy-uV0" secondAttribute="trailingMargin" constant="20" id="4fY-6i-cgY"/>
+                            <constraint firstItem="GD4-RT-VdD" firstAttribute="centerY" secondItem="Bdh-Dy-uV0" secondAttribute="centerY" id="CIB-Ab-2Ds"/>
+                            <constraint firstItem="GD4-RT-VdD" firstAttribute="centerX" secondItem="Bdh-Dy-uV0" secondAttribute="centerX" id="Hjs-zI-zKe"/>
+                            <constraint firstItem="YXO-R4-r9m" firstAttribute="leading" secondItem="Bdh-Dy-uV0" secondAttribute="leadingMargin" constant="-20" id="hXe-Mr-rBh"/>
+                            <constraint firstItem="B02-iY-nok" firstAttribute="top" secondItem="YXO-R4-r9m" secondAttribute="bottom" id="l9R-iP-ReO"/>
+                            <constraint firstItem="YXO-R4-r9m" firstAttribute="top" secondItem="Bdh-Dy-uV0" secondAttribute="topMargin" constant="20" id="lh7-aZ-bFp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="GD4-RT-VdD" id="dgJ-SS-nHJ"/>
+                        <outlet property="imageView" destination="YXO-R4-r9m" id="jZW-2Z-fqt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edw-6T-OIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3521" y="956"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="OsY-lV-V1V">
+            <objects>
+                <viewController storyboardIdentifier="Root" id="jyl-Jx-EaN" customClass="RootViewController" customModule="ControlaDor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uF5-Wv-bWf"/>
+                        <viewControllerLayoutGuide type="bottom" id="6bL-Xv-tDL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7OQ-DM-ZzF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5mQ-vL-wQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2830" y="1605"/>
+        </scene>
     </scenes>
     <resources>
         <image name="HumanBodyFront" width="430" height="1118"/>
         <image name="happy" width="100" height="100"/>
+        <image name="info" width="25" height="25"/>
         <image name="line_chart_filled" width="25" height="25"/>
         <image name="user_male_circle_filled" width="25" height="25"/>
     </resources>

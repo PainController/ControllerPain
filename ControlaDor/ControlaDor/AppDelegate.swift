@@ -19,21 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
+        print(NSUserDefaults.standardUserDefaults().objectForKey("Contact"))
+
         UINavigationBar.appearance().barTintColor = .whiteColor()
 
         UITabBar.appearance().barTintColor = .whiteColor()
 
         CDCloudKitStack.createSubscriptionForConsult("") { (success) -> Void in }
-
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let firstOpen = userDefaults.boolForKey("FirstOpen")
-
-        if !firstOpen {
-            let tutorialController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Tutorial")
-            window?.rootViewController = tutorialController
-            userDefaults.setBool(true, forKey: "FirstOpen")
-            userDefaults.synchronize()
-        }
 
         return true
     }

@@ -63,7 +63,7 @@ class CDCloudKitStack {
         if index < recordsToUpload.count {
             uploadRecord(recordsToUpload[index]) { (success) -> Void in
                 if success && index < recordsToUpload.count {
-                    index++
+                    index += 1
                     uploadRecords({ (success) -> Void in
                     })
                 } else if success && index == recordsToUpload.count {

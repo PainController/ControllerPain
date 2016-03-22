@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E44F94AE1CA1B87900C2317D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44F94AB1CA1B87900C2317D /* RootViewController.swift */; };
+		E44F94AF1CA1B87900C2317D /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44F94AC1CA1B87900C2317D /* DataViewController.swift */; };
+		E44F94B01CA1B87900C2317D /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44F94AD1CA1B87900C2317D /* ModelController.swift */; };
 		E4507EBC1C8F3B36006CCE91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4507EBB1C8F3B36006CCE91 /* AppDelegate.swift */; };
 		E4507EC11C8F3B36006CCE91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4507EBF1C8F3B36006CCE91 /* Main.storyboard */; };
 		E4507EC41C8F3B36006CCE91 /* ControlaDor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4507EC21C8F3B36006CCE91 /* ControlaDor.xcdatamodeld */; };
@@ -93,6 +96,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E44F94AB1CA1B87900C2317D /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E44F94AC1CA1B87900C2317D /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		E44F94AD1CA1B87900C2317D /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		E4507EB81C8F3B36006CCE91 /* ControlaDor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlaDor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4507EBB1C8F3B36006CCE91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4507EC01C8F3B36006CCE91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -155,9 +161,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E44F94A81CA1B85600C2317D /* CDTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				E44F94AB1CA1B87900C2317D /* RootViewController.swift */,
+				E44F94AC1CA1B87900C2317D /* DataViewController.swift */,
+				E44F94AD1CA1B87900C2317D /* ModelController.swift */,
+			);
+			name = CDTutorial;
+			sourceTree = "<group>";
+		};
 		E4507EAF1C8F3B36006CCE91 = {
 			isa = PBXGroup;
 			children = (
+				E44F94A81CA1B85600C2317D /* CDTutorial */,
 				E4507EF51C8F41DB006CCE91 /* Frameworks */,
 				E4507EBA1C8F3B36006CCE91 /* ControlaDor */,
 				E4507EB91C8F3B36006CCE91 /* Products */,
@@ -426,11 +443,13 @@
 				E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */,
 				E4507F481C8F4DAE006CCE91 /* CDUserWorker.swift in Sources */,
 				E4507F771C908EB0006CCE91 /* CDPainDatum+CoreDataProperties.swift in Sources */,
+				E44F94AF1CA1B87900C2317D /* DataViewController.swift in Sources */,
 				E4ED41851C922B23009D715A /* CDCloudKitStack.swift in Sources */,
 				E4507F471C8F4DAE006CCE91 /* CDUserViewController.swift in Sources */,
 				E455E91A1C98761200998F36 /* CDConsultData+CoreDataProperties.swift in Sources */,
 				E4ED41881C9338B8009D715A /* CDUserConsultViewController.swift in Sources */,
 				E4507F721C908BC5006CCE91 /* CDPainDataViewController.swift in Sources */,
+				E44F94AE1CA1B87900C2317D /* RootViewController.swift in Sources */,
 				E4507F451C8F4DAE006CCE91 /* CDUserPresenter.swift in Sources */,
 				E4507F421C8F4DAE006CCE91 /* CDUserConfigurator.swift in Sources */,
 				E455E91B1C98761200998F36 /* CDConsultData.swift in Sources */,
@@ -449,6 +468,7 @@
 				E4AC6B9E1C9B1FF4009390A1 /* CDActivityView.swift in Sources */,
 				E4507F551C8F6B0B006CCE91 /* CDCoreDataStackProtocol.swift in Sources */,
 				E4507EBC1C8F3B36006CCE91 /* AppDelegate.swift in Sources */,
+				E44F94B01CA1B87900C2317D /* ModelController.swift in Sources */,
 				E4507F6F1C908BC5006CCE91 /* CDPainDataModels.swift in Sources */,
 				E455E8E41C97273B00998F36 /* CDTutorialViewController.swift in Sources */,
 				E4507F6E1C908BC5006CCE91 /* CDPainDataInteractor.swift in Sources */,

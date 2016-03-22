@@ -25,7 +25,11 @@ class CDUserWorker
 
     func getUserDefaultsForUserData() -> [NSObject : String] {
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let userData = userDefaults.objectForKey("Contact") as! [String : String]
-        return userData
+        if let userData = userDefaults.objectForKey("Contact") as? [String : String] {
+            return userData
+        } else {
+            userDefaults.setObject(nil, forKey: "Contact")
+            return ["Toque em editar para adicionar dados" : ""]
+        }
     }
 }

@@ -38,7 +38,7 @@ class CDPainDataInteractor: NSObject, CDPainDataInteractorInput
     override init() {
         super.init()
         let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "animate", name: "Alert", object: nil)
+        notificationCenter.addObserver(self, selector: #selector(CDPainDataInteractor.animate), name: "Alert", object: nil)
     }
   
   // MARK: Business logic
