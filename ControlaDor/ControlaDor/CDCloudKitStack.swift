@@ -22,6 +22,10 @@ class CDCloudKitStack {
     private static var recordsToUpload: [CKRecord]!
     private static var index = 0
 
+    class func uploadWatchConsult(data: AnyObject, completionHandler: (success: Bool) -> Void) {
+        
+    }
+
     private class func createNewRecordWithObject(object: (NSDate,Double,String)) -> CKRecord {
         let recordID = CKRecordID(recordName: "PainDatum : \(random(min: -1, max: 1) * random()) : \(NSDate())")
         let record = CKRecord(recordType: "PainDatum", recordID: recordID)

@@ -45,6 +45,17 @@
 		E455E8E41C97273B00998F36 /* CDTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */; };
 		E455E91A1C98761200998F36 /* CDConsultData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E9181C98761200998F36 /* CDConsultData+CoreDataProperties.swift */; };
 		E455E91B1C98761200998F36 /* CDConsultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455E9191C98761200998F36 /* CDConsultData.swift */; };
+		E461F4EC1CA1DAD40004E8A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E461F4EA1CA1DAD40004E8A9 /* Interface.storyboard */; };
+		E461F4EE1CA1DAD40004E8A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461F4ED1CA1DAD40004E8A9 /* Assets.xcassets */; };
+		E461F4F51CA1DAD50004E8A9 /* ControlaWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E461F4F41CA1DAD50004E8A9 /* ControlaWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E461F4FA1CA1DAD50004E8A9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461F4F91CA1DAD50004E8A9 /* InterfaceController.swift */; };
+		E461F4FC1CA1DAD50004E8A9 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461F4FB1CA1DAD50004E8A9 /* ExtensionDelegate.swift */; };
+		E461F4FE1CA1DAD50004E8A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461F4FD1CA1DAD50004E8A9 /* Assets.xcassets */; };
+		E461F5021CA1DAD50004E8A9 /* ControlaWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E461F4E81CA1DAD40004E8A9 /* ControlaWatch.app */; };
+		E461F5121CA1DAF10004E8A9 /* CDYearInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461F5111CA1DAF10004E8A9 /* CDYearInterfaceController.swift */; };
+		E461F5151CA1EA1D0004E8A9 /* CDWatchConnectivityStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461F5141CA1EA1D0004E8A9 /* CDWatchConnectivityStack.swift */; };
+		E461F5171CA1F8100004E8A9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4ED41811C92273B009D715A /* CloudKit.framework */; };
+		E461F51A1CA1FEB70004E8A9 /* CDWatchConnectivityStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461F5191CA1FEB70004E8A9 /* CDWatchConnectivityStack.swift */; };
 		E4AC6B9E1C9B1FF4009390A1 /* CDActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6B9D1C9B1FF4009390A1 /* CDActivityView.swift */; };
 		E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41711C90C866009D715A /* CDPainDatumTask.swift */; };
 		E4ED417B1C91F507009D715A /* OverlayPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41781C91F507009D715A /* OverlayPresentationController.swift */; };
@@ -79,6 +90,20 @@
 			remoteGlobalIDString = B183A4731A8535D100C76870;
 			remoteInfo = ResearchKit;
 		};
+		E461F4F61CA1DAD50004E8A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4507EB01C8F3B36006CCE91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E461F4F31CA1DAD50004E8A9;
+			remoteInfo = "ControlaWatch Extension";
+		};
+		E461F5001CA1DAD50004E8A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4507EB01C8F3B36006CCE91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E461F4E71CA1DAD40004E8A9;
+			remoteInfo = ControlaWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +116,28 @@
 				E4507EEF1C8F41B4006CCE91 /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E461F50A1CA1DAD50004E8A9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E461F4F51CA1DAD50004E8A9 /* ControlaWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E461F50C1CA1DAD50004E8A9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				E461F5021CA1DAD50004E8A9 /* ControlaWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -135,6 +182,19 @@
 		E455E8E31C97273B00998F36 /* CDTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDTutorialViewController.swift; sourceTree = "<group>"; };
 		E455E9181C98761200998F36 /* CDConsultData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDConsultData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E455E9191C98761200998F36 /* CDConsultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDConsultData.swift; sourceTree = "<group>"; };
+		E461F4E81CA1DAD40004E8A9 /* ControlaWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlaWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461F4EB1CA1DAD40004E8A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		E461F4ED1CA1DAD40004E8A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E461F4EF1CA1DAD40004E8A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E461F4F41CA1DAD50004E8A9 /* ControlaWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ControlaWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461F4F91CA1DAD50004E8A9 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		E461F4FB1CA1DAD50004E8A9 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		E461F4FD1CA1DAD50004E8A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E461F4FF1CA1DAD50004E8A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E461F5111CA1DAF10004E8A9 /* CDYearInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDYearInterfaceController.swift; sourceTree = "<group>"; };
+		E461F5131CA1E26E0004E8A9 /* ControlaWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ControlaWatch Extension.entitlements"; sourceTree = "<group>"; };
+		E461F5141CA1EA1D0004E8A9 /* CDWatchConnectivityStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDWatchConnectivityStack.swift; sourceTree = "<group>"; };
+		E461F5191CA1FEB70004E8A9 /* CDWatchConnectivityStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDWatchConnectivityStack.swift; sourceTree = "<group>"; };
 		E4AC6B9D1C9B1FF4009390A1 /* CDActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDActivityView.swift; sourceTree = "<group>"; };
 		E4ED41711C90C866009D715A /* CDPainDatumTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatumTask.swift; sourceTree = "<group>"; };
 		E4ED41781C91F507009D715A /* OverlayPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayPresentationController.swift; sourceTree = "<group>"; };
@@ -158,6 +218,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E461F4F11CA1DAD50004E8A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E461F5171CA1F8100004E8A9 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -175,6 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				E44F94A81CA1B85600C2317D /* CDTutorial */,
+				E461F4E91CA1DAD40004E8A9 /* ControlaWatch */,
+				E461F4F81CA1DAD50004E8A9 /* ControlaWatch Extension */,
 				E4507EF51C8F41DB006CCE91 /* Frameworks */,
 				E4507EBA1C8F3B36006CCE91 /* ControlaDor */,
 				E4507EB91C8F3B36006CCE91 /* Products */,
@@ -185,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				E4507EB81C8F3B36006CCE91 /* ControlaDor.app */,
+				E461F4E81CA1DAD40004E8A9 /* ControlaWatch.app */,
+				E461F4F41CA1DAD50004E8A9 /* ControlaWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +264,7 @@
 		E4507EBA1C8F3B36006CCE91 /* ControlaDor */ = {
 			isa = PBXGroup;
 			children = (
+				E461F5181CA1FE850004E8A9 /* CDWatchConnectivityStack */,
 				E4507EBB1C8F3B36006CCE91 /* AppDelegate.swift */,
 				E4507F741C908BF0006CCE91 /* CDCoreDataStack */,
 				E4ED41831C922B00009D715A /* CDCloudKitStack */,
@@ -293,6 +366,38 @@
 			name = CDTutorial;
 			sourceTree = "<group>";
 		};
+		E461F4E91CA1DAD40004E8A9 /* ControlaWatch */ = {
+			isa = PBXGroup;
+			children = (
+				E461F4EA1CA1DAD40004E8A9 /* Interface.storyboard */,
+				E461F4ED1CA1DAD40004E8A9 /* Assets.xcassets */,
+				E461F4EF1CA1DAD40004E8A9 /* Info.plist */,
+			);
+			path = ControlaWatch;
+			sourceTree = "<group>";
+		};
+		E461F4F81CA1DAD50004E8A9 /* ControlaWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E461F5131CA1E26E0004E8A9 /* ControlaWatch Extension.entitlements */,
+				E461F4F91CA1DAD50004E8A9 /* InterfaceController.swift */,
+				E461F5111CA1DAF10004E8A9 /* CDYearInterfaceController.swift */,
+				E461F4FB1CA1DAD50004E8A9 /* ExtensionDelegate.swift */,
+				E461F5141CA1EA1D0004E8A9 /* CDWatchConnectivityStack.swift */,
+				E461F4FD1CA1DAD50004E8A9 /* Assets.xcassets */,
+				E461F4FF1CA1DAD50004E8A9 /* Info.plist */,
+			);
+			path = "ControlaWatch Extension";
+			sourceTree = "<group>";
+		};
+		E461F5181CA1FE850004E8A9 /* CDWatchConnectivityStack */ = {
+			isa = PBXGroup;
+			children = (
+				E461F5191CA1FEB70004E8A9 /* CDWatchConnectivityStack.swift */,
+			);
+			name = CDWatchConnectivityStack;
+			sourceTree = "<group>";
+		};
 		E4ED41771C91F4EC009D715A /* CDPainImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,16 +438,52 @@
 				E4507EB51C8F3B36006CCE91 /* Frameworks */,
 				E4507EB61C8F3B36006CCE91 /* Resources */,
 				E4507EF21C8F41B4006CCE91 /* Embed Frameworks */,
+				E461F50C1CA1DAD50004E8A9 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				E4507EF11C8F41B4006CCE91 /* PBXTargetDependency */,
+				E461F5011CA1DAD50004E8A9 /* PBXTargetDependency */,
 			);
 			name = ControlaDor;
 			productName = ControlaDor;
 			productReference = E4507EB81C8F3B36006CCE91 /* ControlaDor.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E461F4E71CA1DAD40004E8A9 /* ControlaWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E461F50B1CA1DAD50004E8A9 /* Build configuration list for PBXNativeTarget "ControlaWatch" */;
+			buildPhases = (
+				E461F4E61CA1DAD40004E8A9 /* Resources */,
+				E461F50A1CA1DAD50004E8A9 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E461F4F71CA1DAD50004E8A9 /* PBXTargetDependency */,
+			);
+			name = ControlaWatch;
+			productName = ControlaWatch;
+			productReference = E461F4E81CA1DAD40004E8A9 /* ControlaWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		E461F4F31CA1DAD50004E8A9 /* ControlaWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E461F5091CA1DAD50004E8A9 /* Build configuration list for PBXNativeTarget "ControlaWatch Extension" */;
+			buildPhases = (
+				E461F4F01CA1DAD50004E8A9 /* Sources */,
+				E461F4F11CA1DAD50004E8A9 /* Frameworks */,
+				E461F4F21CA1DAD50004E8A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ControlaWatch Extension";
+			productName = "ControlaWatch Extension";
+			productReference = E461F4F41CA1DAD50004E8A9 /* ControlaWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -350,7 +491,7 @@
 		E4507EB01C8F3B36006CCE91 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = PainController;
 				TargetAttributes = {
@@ -364,6 +505,19 @@
 							com.apple.HealthKit = {
 								enabled = 0;
 							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					E461F4E71CA1DAD40004E8A9 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = YBDF2UUEMG;
+					};
+					E461F4F31CA1DAD50004E8A9 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = YBDF2UUEMG;
+						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -391,6 +545,8 @@
 			projectRoot = "";
 			targets = (
 				E4507EB71C8F3B36006CCE91 /* ControlaDor */,
+				E461F4E71CA1DAD40004E8A9 /* ControlaWatch */,
+				E461F4F31CA1DAD50004E8A9 /* ControlaWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -421,6 +577,23 @@
 				E4507EC91C8F3B36006CCE91 /* LaunchScreen.storyboard in Resources */,
 				E4507EC61C8F3B36006CCE91 /* Assets.xcassets in Resources */,
 				E4507EC11C8F3B36006CCE91 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E461F4E61CA1DAD40004E8A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E461F4EE1CA1DAD40004E8A9 /* Assets.xcassets in Resources */,
+				E461F4EC1CA1DAD40004E8A9 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E461F4F21CA1DAD50004E8A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E461F4FE1CA1DAD50004E8A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +630,7 @@
 				E4507F781C908EB0006CCE91 /* CDPainDatum.swift in Sources */,
 				E4ED417D1C91F507009D715A /* BouncyViewControllerAnimator.swift in Sources */,
 				E4507F6D1C908BC5006CCE91 /* CDPainDataConfigurator.swift in Sources */,
+				E461F51A1CA1FEB70004E8A9 /* CDWatchConnectivityStack.swift in Sources */,
 				E4507F631C8F8A4A006CCE91 /* ViewController.swift in Sources */,
 				E4507F611C8F894B006CCE91 /* ORKTaskResultString.swift in Sources */,
 				E4507F591C8F871C006CCE91 /* BriefPainInvetoryTask.swift in Sources */,
@@ -475,6 +649,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E461F4F01CA1DAD50004E8A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E461F5151CA1EA1D0004E8A9 /* CDWatchConnectivityStack.swift in Sources */,
+				E461F4FC1CA1DAD50004E8A9 /* ExtensionDelegate.swift in Sources */,
+				E461F5121CA1DAF10004E8A9 /* CDYearInterfaceController.swift in Sources */,
+				E461F4FA1CA1DAD50004E8A9 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -482,6 +667,16 @@
 			isa = PBXTargetDependency;
 			name = ResearchKit;
 			targetProxy = E4507EF01C8F41B4006CCE91 /* PBXContainerItemProxy */;
+		};
+		E461F4F71CA1DAD50004E8A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E461F4F31CA1DAD50004E8A9 /* ControlaWatch Extension */;
+			targetProxy = E461F4F61CA1DAD50004E8A9 /* PBXContainerItemProxy */;
+		};
+		E461F5011CA1DAD50004E8A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E461F4E71CA1DAD40004E8A9 /* ControlaWatch */;
+			targetProxy = E461F5001CA1DAD50004E8A9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -500,6 +695,14 @@
 				E4507EC81C8F3B36006CCE91 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E461F4EA1CA1DAD40004E8A9 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E461F4EB1CA1DAD40004E8A9 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -620,6 +823,76 @@
 			};
 			name = Release;
 		};
+		E461F5031CA1DAD50004E8A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = ControlaWatch_Extension;
+				INFOPLIST_FILE = ControlaWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		E461F5041CA1DAD50004E8A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = ControlaWatch_Extension;
+				INFOPLIST_FILE = ControlaWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		E461F5051CA1DAD50004E8A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = "ControlaWatch Extension/ControlaWatch Extension.entitlements";
+				INFOPLIST_FILE = "ControlaWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		E461F5061CA1DAD50004E8A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = "ControlaWatch Extension/ControlaWatch Extension.entitlements";
+				INFOPLIST_FILE = "ControlaWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -640,6 +913,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E461F5091CA1DAD50004E8A9 /* Build configuration list for PBXNativeTarget "ControlaWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E461F5051CA1DAD50004E8A9 /* Debug */,
+				E461F5061CA1DAD50004E8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E461F50B1CA1DAD50004E8A9 /* Build configuration list for PBXNativeTarget "ControlaWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E461F5031CA1DAD50004E8A9 /* Debug */,
+				E461F5041CA1DAD50004E8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

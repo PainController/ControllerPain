@@ -12,6 +12,7 @@
 import UIKit
 import ResearchKit
 import MessageUI
+import WatchConnectivity
 
 protocol CDUserViewControllerInput
 {
@@ -23,7 +24,7 @@ protocol CDUserViewControllerOutput
     func requestHealthAndData(request: CDUserRequest)
 }
 
-class CDUserViewController: UITableViewController, CDUserViewControllerInput, ORKTaskViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class CDUserViewController: UITableViewController, CDUserViewControllerInput, ORKTaskViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WCSessionDelegate
 {
     var output: CDUserViewControllerOutput!
     var router: CDUserRouter!
@@ -57,6 +58,74 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
             presentViewController(tutorial, animated: true, completion: nil)
             userDefaults.setBool(true, forKey: "FirstOpen")
             userDefaults.synchronize()
+        }
+
+        if #available(iOS 9.0, *) {
+            if WCSession.isSupported() {
+                let session = WCSession.defaultSession()
+                session.delegate = self
+                session.activateSession()
+            } else {
+            }
+
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+
+    func createUserContact(date: NSDate) -> CDUserContact {
+        var contact = CDUserContact()
+
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userData = userDefaults.objectForKey("Contact") as? [String : String]
+
+        let name = userData!["Nome"]
+        let convenium = userData!["Convênio"]
+        let phone = userData!["Telefone"]
+        let mail = userData!["E-mail"]
+
+        contact.name = name
+        contact.convenio = convenium
+        contact.telephone = phone
+        contact.email = mail
+        contact.date = date
+        return contact
+    }
+
+    @available(iOS 9.0, *)
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        guard let msg = message["ConsultDate"] as? String else {
+            print(#function,"Nil variable")
+            return
+        }
+
+        dispatch_async(dispatch_get_main_queue()) {
+            self.view.backgroundColor = .blackColor()
+            print(#function, msg)
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if let data = defaults.objectForKey("BFIUpdated") {
+                let doctorData = data as! NSData
+                let dataPack = NSKeyedUnarchiver.unarchiveObjectWithData(doctorData) as! NSArray
+                let results = dataPack.firstObject as! [String : String]
+                let images = dataPack.lastObject as! [UIImage]
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                do {
+                    let jsonData = try NSJSONSerialization.dataWithJSONObject(results, options: .PrettyPrinted)
+                    let jsonText = NSString(data: jsonData, encoding: NSASCIIStringEncoding)
+                    let imagesData = NSKeyedArchiver.archivedDataWithRootObject(images)
+                    self.userConsult = CDUserConsult(briefPainInventoryData: String(jsonText!), imagesData: imagesData)
+                    let contact = self.createUserContact(dateFormatter.dateFromString(msg)!)
+
+                    CDCloudKitStack.createBPIRecord(self.userConsult.briefPainInventoryData, images: self.userConsult.imagesData, contact: contact, indicator: UIActivityIndicatorView(), completionHandler: { (success) in
+                        if !success {
+                            self.view.backgroundColor = .blackColor()
+                        }
+                    })
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
 
