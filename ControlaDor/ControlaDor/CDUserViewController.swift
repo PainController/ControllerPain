@@ -160,9 +160,21 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
-        imagePicker.sourceType = .Camera
         imagePicker.cameraDevice = .Front
-        presentViewController(imagePicker, animated: true, completion: nil)
+
+        let alertController = UIAlertController(title: "eseja tirar a foto ou escolher da biblioteca?", message: nil, preferredStyle: .ActionSheet)
+        let camera = UIAlertAction(title: "Câmera", style: .Default) { (action) -> Void in
+            imagePicker.sourceType = .Camera
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        let library = UIAlertAction(title: "Biblioteca de fotos", style: .Default) { (action) -> Void in
+            imagePicker.sourceType = .PhotoLibrary
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction(title: Cancelar, style: .Cancel, handler: nil)
+        alertController.addAction(camera)
+        alertController.addAction(library)
+        alertController.addAction(cancel)
     }
 
     // MARK: UIImagePickerControllerDelegate
