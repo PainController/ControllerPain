@@ -10,19 +10,26 @@
             <objects>
                 <controller id="jcQ-i8-FSQ" customClass="CDYearInterfaceController" customModule="ControlaWatch_Extension">
                     <items>
-                        <group width="1" height="102" alignment="center" verticalAlignment="center" id="jnh-0I-EQV">
+                        <group width="1" height="23" alignment="center" id="lB5-aw-VnV">
                             <items>
-                                <picker width="61" height="96" alignment="right" verticalAlignment="center" focusStyle="stack" id="Y41-Yb-p8I">
+                                <label width="31" alignment="left" verticalAlignment="center" text="Dia" textAlignment="left" id="fcM-5u-apP"/>
+                                <label width="43.5" alignment="center" verticalAlignment="center" text="Mês" id="sMd-b2-ZVg"/>
+                                <label width="47.5" alignment="right" verticalAlignment="center" text="Ano" textAlignment="right" id="dV3-Hj-TN3"/>
+                            </items>
+                        </group>
+                        <group width="1" height="84" alignment="center" verticalAlignment="center" id="jnh-0I-EQV">
+                            <items>
+                                <picker width="50" height="81" alignment="right" verticalAlignment="center" focusStyle="stack" id="Y41-Yb-p8I">
                                     <connections>
                                         <action selector="setYear:" destination="jcQ-i8-FSQ" id="pJ8-by-TNT"/>
                                     </connections>
                                 </picker>
-                                <picker width="36" height="97" alignment="left" verticalAlignment="center" focusStyle="stack" id="OWB-ZP-gdP">
+                                <picker width="36" height="83" alignment="left" verticalAlignment="center" focusStyle="stack" id="OWB-ZP-gdP">
                                     <connections>
                                         <action selector="setDay:" destination="jcQ-i8-FSQ" id="5OQ-mU-TeG"/>
                                     </connections>
                                 </picker>
-                                <picker width="33" height="97" alignment="center" verticalAlignment="center" focusStyle="stack" id="ETi-5O-pEy">
+                                <picker width="44" height="82" alignment="center" verticalAlignment="center" focusStyle="stack" id="ETi-5O-pEy">
                                     <variation key="device=watch42mm" width="52"/>
                                     <connections>
                                         <action selector="setMonth:" destination="jcQ-i8-FSQ" id="tdu-yb-ZEp"/>
@@ -44,7 +51,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="777" y="768"/>
+            <point key="canvasLocation" x="777" y="756.5"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="vU8-fV-SqV">

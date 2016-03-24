@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
                     CDCloudKitStack.createBPIRecord(String(jsonText!), images: imagesData, contact: contact, indicator: UIActivityIndicatorView(), completionHandler: { (success) in
                         if !success {
-                            session.sendMessage(["ErrorAlert" : "Não pôde se conectar com o iCloud\nReconecte o iPhone à internet"], replyHandler: nil, errorHandler: nil)
+                            session.sendMessage(["ErrorAlert" : "Não pôde se conectar com o iCloud"], replyHandler: nil, errorHandler: nil)
                         } else {
                             session.sendMessage(["SuccessAlert" : "com sucesso"], replyHandler: nil, errorHandler: nil)
                         }

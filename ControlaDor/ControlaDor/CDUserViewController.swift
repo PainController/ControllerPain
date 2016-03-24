@@ -157,6 +157,16 @@ class CDUserViewController: UITableViewController, CDUserViewControllerInput, OR
                 let results = dataPack.firstObject as! [String : String]
                 let images = dataPack.lastObject as! [UIImage]
 
+                guard let _ = defaults.objectForKey("Contact") as? [String : String] else {
+                    let actionController = UIAlertController(title: "Você ainda não forneceu seus dados de contato", message: "Toque em editar para configurar", preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "Ok", style: .Default, handler: { (alert) -> Void in
+                        self.navigationController?.popToRootViewControllerAnimated(true)
+                    })
+                    actionController.addAction(action)
+                    self.presentViewController(actionController, animated: true, completion: nil)
+                    return
+                }
+
                 do {
                     let jsonData = try NSJSONSerialization.dataWithJSONObject(results, options: .PrettyPrinted)
                     let jsonText = NSString(data: jsonData, encoding: NSASCIIStringEncoding)

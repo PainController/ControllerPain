@@ -53,6 +53,8 @@
 		E461F5021CA1DAD50004E8A9 /* ControlaWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E461F4E81CA1DAD40004E8A9 /* ControlaWatch.app */; };
 		E461F5121CA1DAF10004E8A9 /* CDYearInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461F5111CA1DAF10004E8A9 /* CDYearInterfaceController.swift */; };
 		E4AC6B9E1C9B1FF4009390A1 /* CDActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6B9D1C9B1FF4009390A1 /* CDActivityView.swift */; };
+		E4BFD72D1CA45C7000811249 /* ControlaDorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BFD72C1CA45C7000811249 /* ControlaDorUITests.swift */; };
+		E4BFD7351CA45D3A00811249 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BFD7341CA45D3A00811249 /* SnapshotHelper.swift */; };
 		E4ED41721C90C866009D715A /* CDPainDatumTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41711C90C866009D715A /* CDPainDatumTask.swift */; };
 		E4ED417B1C91F507009D715A /* OverlayPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41781C91F507009D715A /* OverlayPresentationController.swift */; };
 		E4ED417C1C91F507009D715A /* OverlayTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */; };
@@ -99,6 +101,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E461F4E71CA1DAD40004E8A9;
 			remoteInfo = ControlaWatch;
+		};
+		E4BFD72F1CA45C7000811249 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4507EB01C8F3B36006CCE91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4507EB71C8F3B36006CCE91;
+			remoteInfo = ControlaDor;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -189,6 +198,10 @@
 		E461F5111CA1DAF10004E8A9 /* CDYearInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDYearInterfaceController.swift; sourceTree = "<group>"; };
 		E461F5131CA1E26E0004E8A9 /* ControlaWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ControlaWatch Extension.entitlements"; sourceTree = "<group>"; };
 		E4AC6B9D1C9B1FF4009390A1 /* CDActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDActivityView.swift; sourceTree = "<group>"; };
+		E4BFD72A1CA45C7000811249 /* ControlaDorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControlaDorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4BFD72C1CA45C7000811249 /* ControlaDorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlaDorUITests.swift; sourceTree = "<group>"; };
+		E4BFD72E1CA45C7000811249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4BFD7341CA45D3A00811249 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		E4ED41711C90C866009D715A /* CDPainDatumTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPainDatumTask.swift; sourceTree = "<group>"; };
 		E4ED41781C91F507009D715A /* OverlayPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayPresentationController.swift; sourceTree = "<group>"; };
 		E4ED41791C91F507009D715A /* OverlayTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +231,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4BFD7271CA45C7000811249 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -237,6 +257,7 @@
 				E44F94A81CA1B85600C2317D /* CDTutorial */,
 				E461F4E91CA1DAD40004E8A9 /* ControlaWatch */,
 				E461F4F81CA1DAD50004E8A9 /* ControlaWatch Extension */,
+				E4BFD72B1CA45C7000811249 /* ControlaDorUITests */,
 				E4507EF51C8F41DB006CCE91 /* Frameworks */,
 				E4507EBA1C8F3B36006CCE91 /* ControlaDor */,
 				E4507EB91C8F3B36006CCE91 /* Products */,
@@ -249,6 +270,7 @@
 				E4507EB81C8F3B36006CCE91 /* ControlaDor.app */,
 				E461F4E81CA1DAD40004E8A9 /* ControlaWatch.app */,
 				E461F4F41CA1DAD50004E8A9 /* ControlaWatch Extension.appex */,
+				E4BFD72A1CA45C7000811249 /* ControlaDorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -379,6 +401,16 @@
 			path = "ControlaWatch Extension";
 			sourceTree = "<group>";
 		};
+		E4BFD72B1CA45C7000811249 /* ControlaDorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E4BFD7341CA45D3A00811249 /* SnapshotHelper.swift */,
+				E4BFD72C1CA45C7000811249 /* ControlaDorUITests.swift */,
+				E4BFD72E1CA45C7000811249 /* Info.plist */,
+			);
+			path = ControlaDorUITests;
+			sourceTree = "<group>";
+		};
 		E4ED41771C91F4EC009D715A /* CDPainImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +498,24 @@
 			productReference = E461F4F41CA1DAD50004E8A9 /* ControlaWatch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		E4BFD7291CA45C7000811249 /* ControlaDorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4BFD7311CA45C7000811249 /* Build configuration list for PBXNativeTarget "ControlaDorUITests" */;
+			buildPhases = (
+				E4BFD7261CA45C7000811249 /* Sources */,
+				E4BFD7271CA45C7000811249 /* Frameworks */,
+				E4BFD7281CA45C7000811249 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4BFD7301CA45C7000811249 /* PBXTargetDependency */,
+			);
+			name = ControlaDorUITests;
+			productName = ControlaDorUITests;
+			productReference = E4BFD72A1CA45C7000811249 /* ControlaDorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -504,6 +554,10 @@
 							};
 						};
 					};
+					E4BFD7291CA45C7000811249 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = E4507EB71C8F3B36006CCE91;
+					};
 				};
 			};
 			buildConfigurationList = E4507EB31C8F3B36006CCE91 /* Build configuration list for PBXProject "ControlaDor" */;
@@ -528,6 +582,7 @@
 				E4507EB71C8F3B36006CCE91 /* ControlaDor */,
 				E461F4E71CA1DAD40004E8A9 /* ControlaWatch */,
 				E461F4F31CA1DAD50004E8A9 /* ControlaWatch Extension */,
+				E4BFD7291CA45C7000811249 /* ControlaDorUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -575,6 +630,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E461F4FE1CA1DAD50004E8A9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4BFD7281CA45C7000811249 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +700,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4BFD7261CA45C7000811249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4BFD72D1CA45C7000811249 /* ControlaDorUITests.swift in Sources */,
+				E4BFD7351CA45D3A00811249 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -655,6 +726,11 @@
 			isa = PBXTargetDependency;
 			target = E461F4E71CA1DAD40004E8A9 /* ControlaWatch */;
 			targetProxy = E461F5001CA1DAD50004E8A9 /* PBXContainerItemProxy */;
+		};
+		E4BFD7301CA45C7000811249 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4507EB71C8F3B36006CCE91 /* ControlaDor */;
+			targetProxy = E4BFD72F1CA45C7000811249 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -778,7 +854,7 @@
 				INFOPLIST_FILE = ControlaDor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor;
+				PRODUCT_BUNDLE_IDENTIFIER = limahugo.ControlaDor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -795,7 +871,7 @@
 				INFOPLIST_FILE = ControlaDor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor;
+				PRODUCT_BUNDLE_IDENTIFIER = limahugo.ControlaDor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -873,6 +949,32 @@
 			};
 			name = Release;
 		};
+		E4BFD7321CA45C7000811249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = ControlaDorUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lima.ControlaDorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ControlaDor;
+			};
+			name = Debug;
+		};
+		E4BFD7331CA45C7000811249 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = ControlaDorUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lima.ControlaDorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ControlaDor;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -908,6 +1010,15 @@
 			buildConfigurations = (
 				E461F5031CA1DAD50004E8A9 /* Debug */,
 				E461F5041CA1DAD50004E8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4BFD7311CA45C7000811249 /* Build configuration list for PBXNativeTarget "ControlaDorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4BFD7321CA45C7000811249 /* Debug */,
+				E4BFD7331CA45C7000811249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

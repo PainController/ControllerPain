@@ -78,7 +78,7 @@ class CDYearInterfaceController: WKInterfaceController, WCSessionDelegate {
                 print(#function,"Sim")
             }
             WKInterfaceDevice.currentDevice().playHaptic(.Failure)
-            self.presentAlertControllerWithTitle("Erro", message: "Não estou conectado com o iPhone", preferredStyle: .ActionSheet, actions: [yep])
+            self.presentAlertControllerWithTitle("Erro", message: "Não há conexão com o iPhone", preferredStyle: .ActionSheet, actions: [yep])
         }
     }
 
