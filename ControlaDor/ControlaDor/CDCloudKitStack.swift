@@ -77,6 +77,8 @@ class CDCloudKitStack {
                     completionHandler?(success: false)
                 }
             }
+        } else if recordsToUpload.count == 0 {
+            completionHandler?(success: false)
         } else {
             recordsToUpload = []
             let center = NSNotificationCenter.defaultCenter()

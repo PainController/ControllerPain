@@ -9,15 +9,24 @@
 import UIKit
 import CoreData
 import CloudKit
+import WatchConnectivity
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        if #available(iOS 9.0, *) {
+            if WCSession.isSupported() {
+                WCSession.defaultSession().delegate = self
+                WCSession.defaultSession().activateSession()
+            }
+        } else {
+            // Fallback on earlier versions
+        }
 
         print(NSUserDefaults.standardUserDefaults().objectForKey("Contact"))
 
@@ -28,6 +37,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CDCloudKitStack.createSubscriptionForConsult("") { (success) -> Void in }
 
         return true
+    }
+
+    @available(iOS 9.0, *)
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        guard let msg = message["ConsultDate"] as? String else {
+            print(#function,"Nil variable")
+            return
+        }
+
+        dispatch_async(dispatch_get_main_queue()) {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if let data = defaults.objectForKey("BFIUpdated") {
+                let doctorData = data as! NSData
+                let dataPack = NSKeyedUnarchiver.unarchiveObjectWithData(doctorData) as! NSArray
+                let results = dataPack.firstObject as! [String : String]
+                let images = dataPack.lastObject as! [UIImage]
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                do {
+                    let jsonData = try NSJSONSerialization.dataWithJSONObject(results, options: .PrettyPrinted)
+                    let jsonText = NSString(data: jsonData, encoding: NSASCIIStringEncoding)
+                    let imagesData = NSKeyedArchiver.archivedDataWithRootObject(images)
+                    guard let contact = self.createUserContact(dateFormatter.dateFromString(msg)!) else {
+                        session.sendMessage(["ErrorAlert" : "Não existem dados de contato cadastrados no iPhone"], replyHandler: nil, errorHandler: nil)
+                        return
+                    }
+
+                    CDCloudKitStack.createBPIRecord(String(jsonText!), images: imagesData, contact: contact, indicator: UIActivityIndicatorView(), completionHandler: { (success) in
+                        if !success {
+                            session.sendMessage(["ErrorAlert" : "Não pôde se conectar com o iCloud\nReconecte o iPhone à internet"], replyHandler: nil, errorHandler: nil)
+                        } else {
+                            session.sendMessage(["SuccessAlert" : "com sucesso"], replyHandler: nil, errorHandler: nil)
+                        }
+                    })
+                } catch {
+                    print(error)
+                }
+            } else {
+                session.sendMessage(["ErrorAlert" : "Você não fez o Inventário Breve de Dor no iPhone"], replyHandler: nil, errorHandler: nil)
+            }
+        }
+    }
+
+    private func createUserContact(date: NSDate) -> CDUserContact? {
+        var contact = CDUserContact()
+
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        guard let userData = userDefaults.objectForKey("Contact") as? [String : String] else {
+            return nil
+        }
+
+        let name = userData["Nome"]
+        let convenium = userData["Convênio"]
+        let phone = userData["Telefone"]
+        let mail = userData["E-mail"]
+
+        contact.name = name
+        contact.convenio = convenium
+        contact.telephone = phone
+        contact.email = mail
+        contact.date = date
+        return contact
+
     }
 
     func applicationWillResignActive(application: UIApplication) {

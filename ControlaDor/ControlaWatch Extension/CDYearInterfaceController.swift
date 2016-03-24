@@ -73,7 +73,13 @@ class CDYearInterfaceController: WKInterfaceController, WCSessionDelegate {
 
         configureSession()
         addInfoToSend(("ConsultDate" , date))
-        sendMessage(nil)
+        sendMessage { (error) in
+            let yep = WKAlertAction(title: "Ok", style: .Default) { () -> Void in
+                print(#function,"Sim")
+            }
+            WKInterfaceDevice.currentDevice().playHaptic(.Failure)
+            self.presentAlertControllerWithTitle("Erro", message: "Não estou conectado com o iPhone", preferredStyle: .ActionSheet, actions: [yep])
+        }
     }
 
     private var session: WCSession?
@@ -97,6 +103,26 @@ class CDYearInterfaceController: WKInterfaceController, WCSessionDelegate {
         session?.sendMessage(message!, replyHandler: nil, errorHandler: errorHandler)
     }
 
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        guard let msg = message["ErrorAlert"] as? String else {
+            print(#function, "Not an alert message")
+            if let success = message["SuccessAlert"] as? String {
+                let yep = WKAlertAction(title: "Ok", style: .Default) { () -> Void in
+                    print(#function,"Sim")
+                }
+                WKInterfaceDevice.currentDevice().playHaptic(.Success)
+                presentAlertControllerWithTitle("Consulta solicitada", message: success, preferredStyle: .ActionSheet, actions: [yep])
+                return
+            }
+            return
+        }
+
+        let yep = WKAlertAction(title: "Ok", style: .Default) { () -> Void in
+            print(#function,"Sim")
+        }
+        WKInterfaceDevice.currentDevice().playHaptic(.Failure)
+        presentAlertControllerWithTitle("Erro de conexão", message: msg, preferredStyle: .ActionSheet, actions: [yep])
+    }
 
     // MARK: Reconhecimento de dados do picker
 

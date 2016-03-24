@@ -1,31 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E64a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E64a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jcQ-i8-FSQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
-            <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="ControlaWatch" customModuleProvider="target">
-                    <items>
-                        <button width="1" height="62.5" alignment="center" title="Marcar consulta" id="rzl-VA-Fgw">
-                            <connections>
-                                <segue destination="jcQ-i8-FSQ" kind="push" id="W5l-Gu-baQ"/>
-                            </connections>
-                        </button>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="885" y="659"/>
-        </scene>
         <!--Year Interface Controller-->
         <scene sceneID="uco-sr-bt3">
             <objects>
                 <controller id="jcQ-i8-FSQ" customClass="CDYearInterfaceController" customModule="ControlaWatch_Extension">
                     <items>
-                        <group width="1" height="103" alignment="center" id="jnh-0I-EQV">
+                        <group width="1" height="102" alignment="center" verticalAlignment="center" id="jnh-0I-EQV">
                             <items>
                                 <picker width="61" height="96" alignment="right" verticalAlignment="center" focusStyle="stack" id="Y41-Yb-p8I">
                                     <connections>
@@ -38,13 +23,14 @@
                                     </connections>
                                 </picker>
                                 <picker width="33" height="97" alignment="center" verticalAlignment="center" focusStyle="stack" id="ETi-5O-pEy">
+                                    <variation key="device=watch42mm" width="52"/>
                                     <connections>
                                         <action selector="setMonth:" destination="jcQ-i8-FSQ" id="tdu-yb-ZEp"/>
                                     </connections>
                                 </picker>
                             </items>
                         </group>
-                        <button width="1" height="41.5" alignment="center" verticalAlignment="center" title="Agendar" id="ABl-EZ-diF">
+                        <button width="1" height="44.5" alignment="center" verticalAlignment="center" title="Solicitar consulta" id="ABl-EZ-diF">
                             <connections>
                                 <action selector="setConsult" destination="jcQ-i8-FSQ" id="eBE-Na-cpC"/>
                             </connections>
@@ -54,10 +40,18 @@
                         <outlet property="dayInterfacePicker" destination="OWB-ZP-gdP" id="VWS-7m-uJK"/>
                         <outlet property="monthInterfacePicker" destination="ETi-5O-pEy" id="wlZ-mD-uDP"/>
                         <outlet property="yearInterfacePicker" destination="Y41-Yb-p8I" id="ix1-ZU-z1b"/>
+                        <segue destination="Csg-TI-2nm" kind="relationship" relationship="nextPage" id="XEL-ux-cmc"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="1146" y="659"/>
+            <point key="canvasLocation" x="777" y="768"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="vU8-fV-SqV">
+            <objects>
+                <controller id="Csg-TI-2nm"/>
+            </objects>
+            <point key="canvasLocation" x="1059" y="768"/>
         </scene>
     </scenes>
 </document>
