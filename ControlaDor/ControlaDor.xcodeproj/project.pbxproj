@@ -114,7 +114,7 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		E4507EF21C8F41B4006CCE91 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
@@ -888,7 +888,7 @@
 				IBSC_MODULE = ControlaWatch_Extension;
 				INFOPLIST_FILE = ControlaWatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = limahugo.ControlaDor.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -908,7 +908,7 @@
 				IBSC_MODULE = ControlaWatch_Extension;
 				INFOPLIST_FILE = ControlaWatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = limahugo.ControlaDor.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -924,7 +924,7 @@
 				INFOPLIST_FILE = "ControlaWatch Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = limahugo.ControlaDor.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -940,7 +940,7 @@
 				INFOPLIST_FILE = "ControlaWatch Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = controlador.ControlaDor.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = limahugo.ControlaDor.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

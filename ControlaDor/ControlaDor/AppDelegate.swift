@@ -19,13 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        if #available(iOS 9.0, *) {
-            if WCSession.isSupported() {
-                WCSession.defaultSession().delegate = self
-                WCSession.defaultSession().activateSession()
-            }
-        } else {
-            // Fallback on earlier versions
+        if WCSession.isSupported() {
+            WCSession.defaultSession().delegate = self
+            WCSession.defaultSession().activateSession()
         }
 
         print(NSUserDefaults.standardUserDefaults().objectForKey("Contact"))
